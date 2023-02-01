@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facility</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+
+<!-------------------------------header----------------------->
+<div class="m-2">
+    <div class="d-flex justify-content-between text-center">
+        <span><img src="picture/picture/logo.png" height="100"
+                   width="63"/></span>
+        <span class="d-flex align-items-center">Nguyễn Văn A</span>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-light " style="background: #046056">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page"
+                       href="http://localhost:63343/furama/furama_layout.html?_ijt=tfglljblkbsf680clfbmvfhd8g">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Employee</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Customer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"
+                       href="http://localhost:63343/furama/furama_facility.html?_ijt=tfglljblkbsf680clfbmvfhd8g">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Contract</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-warning" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+<h1 class="bg-light text-center">Facility</h1>
+<div class="d-flex justify-content-between m-2">
+    <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#add" type="button">Add Facility
+    </button>
+    <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-warning" type="submit">Search</button>
+    </form>
+</div>
+
+<!----------------------------- Modal add-->
+<div class="modal fade" id="add" tabindex="-1" aria-labelledby="addlabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addlabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="m-2 row">
+                    <div class="col-sm-2">Customer Type Name</div>
+                    <div class="col-sm-10">
+                        <select name="customer_type_id" class="form-select">
+                            <option value="${ct.id}">${ct.name}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticName" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="staticName" name="name">
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticDate" class="col-sm-2 col-form-label">Date Of Birth</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="staticDate" name="date_of_birth">
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <div class="col-sm-2">Gender</div>
+                    <div class="col-sm-10">
+                        <label>
+                            <input type="radio" name="gender" value="true">
+                        </label>Nam
+                        <label>
+                            <input type="radio" name="gender" value="false">
+                        </label>Nữ
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticIdCard" class="col-sm-2 col-form-label">ID Card</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="staticIdCard" name="id_card">
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticPhoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="staticPhoneNumber" name="phone_number">
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="staticEmail" name="email">
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticAddress" class="col-sm-2 col-form-label">Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="staticAddress" name="address">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Facility Name</th>
+        <th scope="col">Area Cost</th>
+        <th scope="col">Max People</th>
+        <th scope="col">Rent Type Name</th>
+        <th scope="col">Facility Type Name</th>
+        <th scope="col">Standard Room</th>
+        <th scope="col">Description Other Convenience</th>
+        <th scope="col">Pool Area</th>
+        <th scope="col">Number Of Floors</th>
+        <th scope="col">Facility free</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>Villa Beach Front</td>
+        <td>Otto</td>
+        <td>Otto</td>
+        <td>Otto</td>
+        <td>Otto</td>
+        <td>Otto</td>
+        <td>Otto</td>
+        <td>Otto</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+        <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete">
+                Delete
+            </button>
+        </td>
+        <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
+                Edit
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>Room Twin 01</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+        <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete">
+                Delete
+            </button>
+        </td>
+        <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
+                Edit
+            </button>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>House Princess 02</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>Thornton</td>
+        <td>@twitter</td>
+        <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete">
+                Delete
+            </button>
+        </td>
+        <td>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit">
+                Edit
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!----------------------------------------footer--------------------------->
+
+<div class="row" style="background-color: #addccf ;">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-4" style="background-color:#f3f3f3">
+        <h2 style="color: #cbbe73;margin-top: 30px">How to Get to Us</h2>
+        <p>Furama is a premier base for exploring one of Asia’s most exciting new destinations. Just a short drive from
+            Danang lay four UNESCO-listed World Heritage Sites:</p>
+        <h5 style="color: #cbbe73">Local Places</h5>
+        <ol class="list-group list-group-numbered" style="margin-bottom: 30px">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div>The former imperial city of HUE</div>
+                </div>
+                <span class="badge bg-primary rounded-pill">2 hours</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div>The ancient Hoi An</div>
+                </div>
+                <span class="badge bg-primary rounded-pill">30 minutes</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div>Champa civilization, My Son</div>
+                </div>
+                <span class="badge bg-primary rounded-pill">90 minutes</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div>Phong Nha Caves</div>
+                </div>
+                <span class="badge bg-primary rounded-pill">3 hours</span>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+        <ul style="margin-top: 30px; list-style: none">
+            <li class="pb-2"><a href="">News</a></li>
+            <li class="pb-2"><a href="">Rack Rate</a></li>
+            <li class="pb-2"><a href="">Lifestyle Blog</a></li>
+            <li class="pb-2"><a href="">Work with us</a></li>
+            <li class="pb-2"><a href="">Contact us</a></li>
+        </ul>
+    </div>
+    <div class="col-lg-4">
+        <h5 style="color: #cbbe73;margin-top: 30px">Contact US</h5>
+        <ul style="list-style: none; font-size: small">
+            <li>
+                <i class="fa-sharp fa-solid fa-location-dot "></i>
+            </li>
+            <li>103-105 Vo Nguyen Giap Street, Khue My ward, Ngu Hanh Son district, Da Nang city, Viet Nam</li>
+            <li>Tel: 84-236-3847-333</li>
+            <li>email:reservation@furamavietnam.com</li>
+            <li>GDS Codes: Amadeus-GD DADFUR, Galileo/Apollo-GD 16236, Sabre-GD 032771, Worldspan- GD DADFU</li>
+            <hr>
+        </ul>
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+
+<div class="row m-2">
+    <div class="col-4">
+        <div class="card " style="width: 25rem;">
+            <a><img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Garden-Superior-TwinBed-1-F-370x239.jpg"
+                    class="card-img-top" alt="..."></a>
+            <div class="d-flex justify-content-center m-2">
+                <a href="https://book-directonline.com/properties/furamaresortdanangdirect?" class="btn btn-primary room-qview" target="_blank">ĐẶT PHÒNG</a>
+            </div>
+            <div class="card-body text-center">
+                <div class="col">
+                    <h3 class="room-type"><a href="https://furamavietnam.com/vi/rooms/garden-superior/">PHÒNG SUPERIOR
+                        HƯỚNG VƯỜN</a></h3>
+                </div>
+                <div class="room-size mt-0">Diện Tích Phòng: 40.1 m<sup>2</sup></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card " style="width: 25rem;">
+            <a><img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-370x239.jpg"
+                    class="card-img-top" alt="..."></a>
+            <div class="d-flex justify-content-center m-2">
+                <a href="https://book-directonline.com/properties/furamaresortdanangdirect?" class="btn btn-primary room-qview" target="_blank">ĐẶT PHÒNG</a>
+            </div>
+            <div class="card-body text-center">
+                <div class="col">
+                    <h3 class="room-type"><a href="https://furamavietnam.com/vi/rooms/ocean-studio-suite/">PHÒNG STUDIO SUITE HƯỚNG BIỂN</a></h3>
+                </div>
+                <div class="room-size mt-0">Diện Tích Phòng: 40.1 m<sup>2</sup></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card " style="width: 25rem;">
+            <a><img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg"
+                    class="card-img-top" alt="..."></a>
+            <div class="d-flex justify-content-center m-2">
+                <a href="https://book-directonline.com/properties/furamaresortdanangdirect?" class="btn btn-primary room-qview" target="_blank">ĐẶT PHÒNG</a>
+            </div>
+            <div class="card-body text-center">
+                <div class="col">
+                    <h3 class="room-type"><a href="https://furamavietnam.com/vi/rooms/garden-superior/">PHÒNG SUITE
+                        HƯỚNG BIỂN</a></h3>
+                </div>
+                <div class="room-size mt-0">Diện Tích Phòng: 40.1 m<sup>2</sup></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card " style="width: 25rem;">
+            <a><img src="https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Garden-Deluxe-5-370x239.jpg"
+                    class="card-img-top" alt="..."></a>
+            <div class="d-flex justify-content-center m-2">
+                <a href="https://book-directonline.com/properties/furamaresortdanangdirect?" class="btn btn-primary room-qview" target="_blank">ĐẶT PHÒNG</a>
+            </div>
+            <div class="card-body text-center">
+                <div class="col">
+                    <h3 class="room-type"><a href="https://furamavietnam.com/vi/rooms/garden-superior/">PHÒNG DELUXE
+                        HƯỚNG VƯỜN</a></h3>
+                </div>
+                <div class="room-size mt-0">Diện Tích Phòng: 40.1 m<sup>2</sup></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card " style="width: 25rem;">
+            <a><img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Garden-Superior-TwinBed-1-F-370x239.jpg"
+                    class="card-img-top" alt="..."></a>
+            <div class="d-flex justify-content-center m-2">
+                <a href="https://book-directonline.com/properties/furamaresortdanangdirect?" class="btn btn-primary room-qview" target="_blank">ĐẶT PHÒNG</a>
+            </div>
+            <div class="card-body text-center">
+                <div class="col">
+                    <h3 class="room-type"><a href="https://furamavietnam.com/vi/rooms/garden-superior/">PHÒNG SUPERIOR
+                        HƯỚNG VƯỜN</a></h3>
+                </div>
+                <div class="room-size mt-0">Diện Tích Phòng: 40.1 m<sup>2</sup></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card " style="width: 25rem;">
+            <a><img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Lagoon-Superior-twin-bed-F-370x239.jpg"
+                    class="card-img-top" alt="..."></a>
+            <div class="d-flex justify-content-center m-2">
+                <a href="https://book-directonline.com/properties/furamaresortdanangdirect?" class="btn btn-primary room-qview" target="_blank">ĐẶT PHÒNG</a>
+            </div>
+            <div class="card-body text-center">
+                <div class="col">
+                    <h3 class="room-type"><a href="https://furamavietnam.com/vi/rooms/garden-superior/">PHÒNG SUPERIOR
+                        HƯỚNG HỒ</a></h3>
+                </div>
+                <div class="room-size mt-0">Diện Tích Phòng: 40.1 m<sup>2</sup></div>
+                <div class="col-auto ml-auto">
+                    <a href="https://furamavietnam.com/vi/rooms/ocean-suite/" class="room-information" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-original-title="" title=""><i class="icon-information"></i>Xem Thêm</a>
+                    <div class="popover-content d-none">
+                        <ul>
+                            <li>Thang Máy Riêng</li>
+                            <li>Truy Cập Internet Miễn Phí</li>
+                            <li>Toàn Cảnh Hướng Biển</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal edit-->
+<div class="modal fade" id="edit" tabindex="-1" aria-labelledby="editlabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editlabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="m-2 row">
+                    <div class="col-sm-2">Customer Type Name</div>
+                    <div class="col-sm-10">
+                        <select name="customer_type_id" class="form-select">
+                            <option value="${ct.id}">${ct.name}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticName" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="staticName" name="name">
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticDate" class="col-sm-2 col-form-label">Date Of Birth</label>
+                    <div class="col-sm-10">
+                        <input type="date" class="form-control" id="staticDate" name="date_of_birth">
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <div class="col-sm-2">Gender</div>
+                    <div class="col-sm-10">
+                        <label>
+                            <input type="radio" name="gender" value="true">
+                        </label>Nam
+                        <label>
+                            <input type="radio" name="gender" value="false">
+                        </label>Nữ
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticIdCard" class="col-sm-2 col-form-label">ID Card</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="staticIdCard" name="id_card">
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticPhoneNumber" class="col-sm-2 col-form-label">Phone Number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="staticPhoneNumber" name="phone_number">
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="staticEmail" name="email">
+                    </div>
+                </div>
+                <div class="m-2 row">
+                    <label for="staticAddress" class="col-sm-2 col-form-label">Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="staticAddress" name="address">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Modal delete -->
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="modal2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal2">Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Bạn có muốn xóa không?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
