@@ -1,0 +1,16 @@
+<input type="text" #element1>
+<select #element2>
+  <option value="+">Addition(+)</option>
+  <option value="-">Subtraction(-)</option>
+  <option value="*">Multiplication(x)</option>
+  <option value="/">Division(/)</option>
+</select>
+<input #element3 type="text">
+<button type="button" (click)="calculate(element1.value,element2.value,element3.value)" class="btn btn-danger">Result
+</button>
+<p>Kết quả là: {{result}}</p>
+
+
+
+
+
