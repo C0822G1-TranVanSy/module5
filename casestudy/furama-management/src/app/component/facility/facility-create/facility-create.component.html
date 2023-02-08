@@ -1,0 +1,122 @@
+
+<h2 class="d-flex justify-content-center text-danger">Thêm mới dịch vụ</h2>
+<form action="/facility/update" method="post" >
+  <input type="hidden" name="id">
+
+  <div class="m-4 row">
+    <div class="col-sm-2">Facility Type Name</div>
+    <div class="col-sm-10">
+      <select  id="facilityType" class="form-select bg-dark text-light" onchange="showEdit()">
+        <option> 1</option>
+        <option> 2</option>
+        <option> 3</option>
+      </select>
+    </div>
+  </div>
+  <div class="m-4 row">
+    <label class="col-sm-2 col-form-label">Name: </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" >
+
+    </div>
+  </div>
+  <div class="m-4 row">
+    <label class="col-sm-2 col-form-label">Area: </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+  <div class="m-4 row">
+    <label  class="col-sm-2 col-form-label">Cost: </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+  <div class="m-4 row">
+    <label  class="col-sm-2 col-form-label">Max People: </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+  <div class="m-4 row">
+    <div class="col-sm-2">Rent Type Name</div>
+    <div class="col-sm-10">
+      <select class="form-select">
+        <option>Ngày</option>
+        <option>Tháng</option>
+        <option>Năm</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="standardRoomAdd">
+    <div class="m-4 row">
+      <label class="col-sm-2 col-form-label">Standard Room: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div id="descriptionAdd">
+    <div class="m-4 row">
+      <label class="col-sm-2 col-form-label">Description Other
+        Convenience: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div id="poolAreaAdd">
+    <div class="m-4 row">
+      <label  class="col-sm-2 col-form-label">Pool Area: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div id="numberOfFloorsAdd">
+    <div class="m-4 row">
+      <label class="col-sm-2 col-form-label">Number Of Floors: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" >
+      </div>
+    </div>
+  </div>
+  <div id="facilityFreeAdd">
+    <div class="m-4 row">
+      <label class="col-sm-2 col-form-label">Facility Free: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control">
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="d-flex justify-content-center" style="margin: 0 auto">Save</button>
+</form>
+
+<script>
+  showEdit();
+
+  function showEdit() {
+    let x = +document.getElementById("facilityType").value;
+    if (x === 1) {
+      document.getElementById("standardRoomAdd").style.display = 'block';
+      document.getElementById("descriptionAdd").style.display = 'block';
+      document.getElementById("poolAreaAdd").style.display = 'block';
+      document.getElementById("numberOfFloorsAdd").style.display = 'block';
+      document.getElementById("facilityFreeAdd").style.display = 'none';
+    } else if (x === 2) {
+      document.getElementById("standardRoomAdd").style.display = 'block';
+      document.getElementById("descriptionAdd").style.display = 'block';
+      document.getElementById("poolAreaAdd").style.display = 'none';
+      document.getElementById("numberOfFloorsAdd").style.display = 'block';
+      document.getElementById("facilityFreeAdd").style.display = 'none';
+    } else if (x === 3) {
+      document.getElementById("standardRoomAdd").style.display = "none";
+      document.getElementById("descriptionAdd").style.display = "none";
+      document.getElementById("poolAreaAdd").style.display = "none";
+      document.getElementById("numberOfFloorsAdd").style.display = "none";
+      document.getElementById("facilityFreeAdd").style.display = "block";
+    }
+  }
+</script>

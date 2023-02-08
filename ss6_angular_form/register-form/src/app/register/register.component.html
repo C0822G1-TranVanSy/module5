@@ -1,0 +1,78 @@
+<h1>Thêm user</h1>
+<form [formGroup]="registerForm" (ngSubmit)="createUser()">
+  <table>
+    <tr>
+      <td>Email:</td>
+      <td><input type="text" formControlName="email"></td>
+      <td>
+        <p style="color: red" *ngIf="registerForm.controls.email.hasError('required') && registerForm.controls.email.dirty">Email ko được để trống</p>
+        <p style="color: red" *ngIf="registerForm.controls.email.hasError('email')">Email ko đúng định dạng</p>
+      </td>
+    </tr>
+    <tr formGroupName="pwGroup">
+      <td>Password:</td>
+      <td><input type="text" formControlName="password"></td>
+      <td>
+        <p style="color: red" *ngIf="registerForm.get('pwGroup').get('password').hasError('minlength')">Password phải lớn hơn 6 ký
+          tự
+        </p>
+        <p style="color: red" *ngIf="registerForm.get('pwGroup').get('password').hasError('required') && registerForm.get('pwGroup').get('password').dirty">Không được để trống
+        </p>
+      </td>
+    </tr>
+    <tr formGroupName="pwGroup">
+      <td>Confirm Password:</td>
+      <td><input type="text" formControlName="confirmPassword"></td>
+      <td>
+        <p style="color: red" *ngIf="registerForm.controls.pwGroup.hasError('passwordNotMatch') && registerForm.controls.pwGroup.dirty">Không khớp mật khẩu</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Country:</td>
+      <td>
+        <select formControlName="country">
+          <option value="Việt Nam" selected>Việt Nam</option>
+          <option value="Hàn Quốc">Hàn Quốc</option>
+          <option value="Trung Quốc">Trung Quốc</option>
+        </select>
+<!--        <input type="text" formControlName="country">-->
+      </td>
+      <td>
+        <p style="color: red" *ngIf="registerForm.controls.country.hasError('required') && registerForm.controls.country.touched">Country ko để trống</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Age:</td>
+      <td><input type="number" formControlName="age"></td>
+      <td>
+        <p style="color: red" *ngIf="registerForm.controls.age.hasError('required') && registerForm.controls.age.touched">Không được để trống</p>
+        <p style="color: red" *ngIf="registerForm.controls.age.hasError('min')">Age phải lớn hơn 18</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Gender:</td>
+      <td>
+        <input type="radio" formControlName="gender" value="true">Nam
+        <input type="radio" formControlName="gender" value="false">Nữ
+      </td>
+      <td>
+        <p style="color: red" *ngIf="registerForm.controls.gender.hasError('required') && registerForm.controls.gender.touched">Không được để trống</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Phone:</td>
+      <td><input type="text" formControlName="phone"></td>
+      <td>
+        <p style="color: red" *ngIf="registerForm.controls.phone.hasError('pattern')">Phải đúng định dạng</p>
+        <p style="color: red" *ngIf="registerForm.controls.phone.hasError('required') && registerForm.controls.phone.touched">Không được để trống</p>
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>
+        <button type="submit">Tạo mới</button>
+      </td>
+    </tr>
+  </table>
+</form>

@@ -8,6 +8,8 @@ import { FooterComponent } from './component/layout/footer/footer.component';
 import { HomeComponent } from './component/layout/home/home.component';
 import { FacilityListComponent } from './component/facility/facility-list/facility-list.component';
 import { FacilityEditComponent } from './component/facility/facility-edit/facility-edit.component';
+import { FacilityCreateComponent } from './component/facility/facility-create/facility-create.component';
+import { CustomerListComponent } from './component/customer/customer-list/customer-list.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FacilityEditComponent } from './component/facility/facility-edit/facili
     FooterComponent,
     HomeComponent,
     FacilityListComponent,
-    FacilityEditComponent
+    FacilityEditComponent,
+    FacilityCreateComponent,
+    CustomerListComponent
   ],
   imports: [
     BrowserModule,
