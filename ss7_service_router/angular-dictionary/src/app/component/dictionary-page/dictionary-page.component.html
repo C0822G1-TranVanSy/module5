@@ -1,0 +1,23 @@
+
+<input name="word" #element type="text">
+<button type="button" [routerLink]="['/search', element.value]">search</button>
+
+<table>
+  <thead>
+  <tr>
+    <td>STT</td>
+    <td>Từ</td>
+    <td>View</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of iWords; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{item.word}}</td>
+    <td>
+      <button [routerLink]="['/view',item.id]" type="button" class="btn btn-outline-info">View </button>
+    </td>
+  </tr>
+  </tbody>
+
+</table>

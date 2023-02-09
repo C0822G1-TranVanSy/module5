@@ -1,0 +1,47 @@
+<h1>Danh sách sản phẩm</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <td>STT</td>
+    <td>Tên</td>
+    <td>Giá</td>
+    <td>Mô tả</td>
+    <td>Edit</td>
+    <td>Delete</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.description}}</td>
+    <td><button type="button" class="btn btn-warning" [routerLink]="['/product/edit',product.id]"> Edit</button></td>
+    <td>
+      <button type="button" (click)="getIdAndName(product.id,product.name)" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete">
+        Delete
+      </button>
+    </td>
+  </tr>
+  </tbody>
+
+</table>
+
+<!-- Modal delete -->
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="modal2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal2">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn xóa <span class="text-danger">{{namePro}}</span> không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="deleteProduct(idPro)" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

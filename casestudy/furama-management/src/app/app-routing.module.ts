@@ -5,6 +5,8 @@ import {FacilityListComponent} from './component/facility/facility-list/facility
 import {FacilityEditComponent} from './component/facility/facility-edit/facility-edit.component';
 import {FacilityCreateComponent} from './component/facility/facility-create/facility-create.component';
 import {CustomerListComponent} from './component/customer/customer-list/customer-list.component';
+import {CustomerUpdateComponent} from './component/customer/customer-update/customer-update.component';
+import {CustomerCreateComponent} from './component/customer/customer-create/customer-create.component';
 
 
 const routes: Routes = [
@@ -14,6 +16,8 @@ const routes: Routes = [
   {path: 'facility-edit', component: FacilityEditComponent},
   {path: 'facility-create', component: FacilityCreateComponent},
   {path: 'customer-list', component: CustomerListComponent},
+  {path: 'customer-update', component: CustomerUpdateComponent},
+  {path: 'customer-create', component: CustomerCreateComponent},
 
 ];
 
