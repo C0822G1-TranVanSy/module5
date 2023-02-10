@@ -9,7 +9,7 @@ import {IWord} from '../../model/iWord';
   styleUrls: ['./dictionary-detail.component.css']
 })
 export class DictionaryDetailComponent implements OnInit {
-  private iword: IWord;
+  iword: IWord;
   wordSearch: IWord;
 
   constructor(private activatedRoute: ActivatedRoute, private dictionaryService: DictionaryService) {
@@ -21,6 +21,7 @@ export class DictionaryDetailComponent implements OnInit {
         console.log(this.iword);
       }
       const word = next.get('word');
+      console.log(word);
       if (word != null) {
         this.wordSearch = dictionaryService.search(word);
       }

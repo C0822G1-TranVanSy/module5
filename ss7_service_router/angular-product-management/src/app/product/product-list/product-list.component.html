@@ -1,4 +1,16 @@
-<h1>Danh sách sản phẩm</h1>
+<div class="d-flex justify-content-between">
+<input class="form-control me-2" type="search" #nameSearch placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success" (click)="searchByName(nameSearch.value)" type="submit">Search</button>
+</div>
+<div class="d-flex justify-content-between">
+<input class="form-control me-2" type="search" #nameSearch placeholder="Search" aria-label="Search">
+  <select class="form-select" #categorySearch>
+    <option *ngFor="let item of categories" [ngValue]="item">{{item.nameCategory}}</option>
+  </select>
+  <button class="btn btn-outline-success" (click)="searchByNameAndCategory(nameSearch.value,categorySearch.value)" type="submit">Search</button>
+</div>
+
+  <h1>Danh sách sản phẩm</h1>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -6,6 +18,7 @@
     <td>Tên</td>
     <td>Giá</td>
     <td>Mô tả</td>
+    <td>Thể loại</td>
     <td>Edit</td>
     <td>Delete</td>
   </tr>
@@ -16,6 +29,7 @@
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
     <td>{{product.description}}</td>
+    <td *ngIf="product.category">{{product.category.nameCategory}}</td>
     <td><button type="button" class="btn btn-warning" [routerLink]="['/product/edit',product.id]"> Edit</button></td>
     <td>
       <button type="button" (click)="getIdAndName(product.id,product.name)" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete">

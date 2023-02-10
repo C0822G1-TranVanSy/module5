@@ -2,10 +2,6 @@
 <form [formGroup]="productForm" (ngSubmit)="submit()">
   <table>
     <tr>
-      <td>Mã sản phẩm:</td>
-      <td><input type="number" formControlName="id"></td>
-    </tr>
-    <tr>
       <td>Tên sản phẩm:</td>
       <td><input type="text" formControlName="name"></td>
     </tr>
@@ -16,6 +12,12 @@
     <tr>
       <td>Mô tả về sản phẩm</td>
       <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td>Thể loại</td>
+      <td><select [compareWith]="compareFn" formControlName="category">
+        <option *ngFor="let item of categories" [ngValue]="item">{{item.nameCategory}}</option>
+      </select></td>
     </tr>
     <tr>
       <td></td>

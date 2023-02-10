@@ -1,0 +1,64 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "IPhone 13",
+      "price": 2400000,
+      "description": "New",
+      "category": {
+        "id": 1,
+        "nameCategory": "sport"
+      }
+    },
+    {
+      "id": 2,
+      "name": "qưeqwe",
+      "price": 123,
+      "description": "232",
+      "category": {
+        "id": 2,
+        "nameCategory": "romantic"
+      }
+    },
+    {
+      "id": 3,
+      "name": "qewqwwq",
+      "price": 1322121,
+      "description": "ádassda",
+      "category": {
+        "id": 2,
+        "nameCategory": "romantic"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Nokia",
+      "price": 3000000,
+      "description": "hohoho",
+      "category": {
+        "id": 2,
+        "nameCategory": "romantic"
+      }
+    },
+    {
+      "id": 5,
+      "name": "quang tu",
+      "price": 121221,
+      "description": "ádasdas",
+      "category": {
+        "id": 2,
+        "nameCategory": "romantic"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "nameCategory": "sport"
+    },
+    {
+      "id": 2,
+      "nameCategory": "romantic"
+    }
+  ]
+}

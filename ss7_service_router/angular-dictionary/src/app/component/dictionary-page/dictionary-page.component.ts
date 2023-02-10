@@ -21,4 +21,5 @@ export class DictionaryPageComponent implements OnInit {
   getAll() {
     this.iWords = this.dictionaryService.getAll();
   }
+
 }

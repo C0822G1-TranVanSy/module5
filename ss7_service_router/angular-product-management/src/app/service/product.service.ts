@@ -1,70 +1,45 @@
 import {Injectable} from '@angular/core';
 import {Product} from '../model/product';
-import {element} from 'protractor';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Category} from '../model/category';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  products: Product[] = [{
-    id: 1,
-    name: 'IPhone 12',
-    price: 2400000,
-    description: 'New'
-  }, {
-    id: 2,
-    name: 'IPhone 11',
-    price: 1560000,
-    description: 'Like new'
-  }, {
-    id: 3,
-    name: 'IPhone X',
-    price: 968000,
-    description: '97%'
-  }, {
-    id: 4,
-    name: 'IPhone 8',
-    price: 7540000,
-    description: '98%'
-  }, {
-    id: 5,
-    name: 'IPhone 11 Pro',
-    price: 1895000,
-    description: 'Like new'
-  }];
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
   }
 
-  getAll() {
-    return this.products;
+  getAll(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>('http://localhost:3000/products');
   }
 
-  saveProduct(product) {
-    this.products.push(product);
+  saveProduct(event: any) {
+    // tslint:disable-next-line:no-debugger
+    debugger;
+    return this.httpClient.post('http://localhost:3000/products/', event);
   }
 
   editProduct(id: number, product) {
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.getAll().length; i++) {
-      if (id === this.getAll()[i].id) {
-        this.getAll().splice(i, 1, product);
-        break;
-      }
-    }
+    // @ts-ignore
+    return this.httpClient.put('http://localhost:3000/products/' + id, product);
   }
 
   findById(id: number) {
-    // tslint:disable-next-line:no-shadowed-variable
-    const result = this.getAll().filter( element => element.id === id);
-    return result[0];
+      return this.httpClient.get<Product>('http://localhost:3000/products/' + id);
   }
 
   deleteProduct(id: number) {
-    for (let i = 0; i < this.getAll().length; i++) {
-      if (this.getAll()[i].id === id) {
-        this.getAll().splice(i, 1);
-      }
-    }
+      return this.httpClient.delete('http://localhost:3000/products/' + id);
+  }
+
+  searchByNameAndCategory(nameSearch: string, category: string) {
+    // const text = JSON.stringify(category);
+    return this.httpClient.get<Product[]>('http://localhost:3000/products?name_like=' + nameSearch + '&&category=' + category);
+  }
+  searchName(nameSearch: string) {
+    return this.httpClient.get<Product[]>('http://localhost:3000/products?name_like=' + nameSearch);
   }
 }
