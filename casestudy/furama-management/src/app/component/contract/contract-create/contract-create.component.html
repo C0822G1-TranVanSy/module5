@@ -1,0 +1,49 @@
+<h5 class="modal-title" id="addLabel">Thêm hợp đồng</h5>
+
+    <div class="mb-3 row">
+      <label  class="col-sm-3 col-form-label ">Ngày bắt đầu</label>
+      <div class="col-sm-9">
+        <input type="date" class="form-control" >
+
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label  class="col-sm-3 col-form-label">Ngày kết thúc</label>
+      <div class="col-sm-9">
+        <input type="date" class="form-control">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label class="col-sm-3 col-form-label">Tiền đặt cọc</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" >
+
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label class="col-sm-3 col-form-label">Khách hàng thuê dịch vụ</label>
+      <div class="col-sm-9">
+        <select class="form-control" th:field="*{customer}">
+          <option value="">Chọn Khách hàng</option>
+          <option th:each="item: ${customerList}" th:value="${item.id}"
+                  th:text="${item.name}"></option>
+        </select>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label class="col-sm-3 col-form-label">Nhân viên</label>
+      <div class="col-sm-9">
+        <select class="form-control" >
+          <option value="">Chọn Nhân Viên</option>
+
+        </select>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label class="col-sm-3 col-form-label">Dịch vụ</label>
+      <div class="col-sm-9">
+        <select class="form-control" >
+          <option value="">Chọn dịch vụ</option>
+        </select>
+      </div>
+    </div>

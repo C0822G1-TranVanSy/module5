@@ -12,6 +12,8 @@ import { FacilityCreateComponent } from './component/facility/facility-create/fa
 import { CustomerListComponent } from './component/customer/customer-list/customer-list.component';
 import { CustomerCreateComponent } from './component/customer/customer-create/customer-create.component';
 import { CustomerUpdateComponent } from './component/customer/customer-update/customer-update.component';
+import { ContractListComponent } from './component/contract/contract-list/contract-list.component';
+import { ContractCreateComponent } from './component/contract/contract-create/contract-create.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CustomerUpdateComponent } from './component/customer/customer-update/cu
     FacilityCreateComponent,
     CustomerListComponent,
     CustomerCreateComponent,
-    CustomerUpdateComponent
+    CustomerUpdateComponent,
+    ContractListComponent,
+    ContractCreateComponent
   ],
   imports: [
     BrowserModule,
