@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
-import {ActivatedRoute} from '@angular/router';
 import {Category} from '../../model/category';
 import {CategoryService} from '../../service/category.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -15,17 +15,15 @@ export class ProductListComponent implements OnInit {
   categories: Category[] = [];
   idPro: number;
   namePro: string;
+  categoryId = 0;
 
-  constructor(private productService: ProductService, private categoryService: CategoryService) {
-    // this.categoryService.getAll().subscribe(next => {
-    //   console.log(next);
-    //   this.categories = next;
-    // });
+  constructor(private router: Router, private productService: ProductService, private categoryService: CategoryService) {
   }
 
   ngOnInit(): void {
     this.getAll();
     this.getAllCategory();
+
   }
 
   getAllCategory() {
@@ -55,13 +53,20 @@ export class ProductListComponent implements OnInit {
   }
 
   searchByName(nameSearch: string) {
+    console.log(nameSearch);
     this.productService.searchName(nameSearch).subscribe(next => {
       this.products = next;
     });
   }
 
-  searchByNameAndCategory(nameSearch: string, category: string) {
-    this.productService.searchByNameAndCategory(nameSearch, category).subscribe(next => {
+  searchByNameAndCategory(nameSearch: string, categoryId: number) {
+    console.log(categoryId);
+    console.log(nameSearch);
+    let searchPromise = this.productService.searchName(nameSearch);
+    if (categoryId) {
+      searchPromise = this.productService.searchByNameAndCategory(nameSearch, categoryId);
+    }
+    searchPromise.subscribe(next => {
       this.products = next;
     });
   }

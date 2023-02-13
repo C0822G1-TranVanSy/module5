@@ -1,0 +1,31 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "customerType":
+        {
+          "id": 1,
+          "name": "Diamond"
+        },
+      "customerName": "Trần Văn Sỹ",
+      "dateOfBirth": "20-05-1997",
+      "gender": true,
+      "idCard": "194623960",
+      "phoneNumber": "0969500694",
+      "email": "tranvansy205@gmail.com",
+      "address": "Quảng Bình"
+    }
+  ],
+  "customerTypes": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },{
+      "id": 2,
+      "name": "Gold"
+    },{
+      "id": 3,
+      "name": "Silver"
+    }
+  ]
+}

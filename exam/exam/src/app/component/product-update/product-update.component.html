@@ -1,0 +1,43 @@
+<h2 class="text-danger text-center">Update</h2>
+<form [formGroup]="formProduct" (ngSubmit)="update()">
+  <div class="row">
+    <div class="offset-3 col-6 card p-2 bg-light">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name: </label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Gender: </label>
+        <div>
+          <input class="form-check-input" [(ngModel)]="selectedOption" type="radio" [value]="true" formControlName="gender">Nam
+          <input class="form-check-input" type="radio" [value]="false" formControlName="gender">Nữ
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="startDate" class="form-label">Start date: </label>
+        <input type="date" class="form-control" id="startDate" formControlName="startDate">
+      </div>
+      <div class="mb-3">
+        <label for="endDate" class="form-label">End date: </label>
+        <p class="text-danger" *ngIf="formProduct.hasError('invalidEndDate')">ngày kết thúc lớn hơn ngày bắt đầu</p>
+        <input type="date" class="form-control" id="endDate" formControlName="endDate">
+      </div>
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone: </label>
+        <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Category: </label>
+        <p class="text-danger" *ngIf="formProduct.controls.category.hasError('required')">Không được để trống</p>
+        <select class="form-select" formControlName="category" id="category" [compareWith]="compareFn">
+          <option value="">Chọn category</option>
+          <option *ngFor="let item of categoryList" [ngValue]="item">{{item.categoryName}}</option>
+        </select>
+      </div>
+      <div class="text-center">
+        <button class="w-25 btn btn-success" type="submit">Update</button>
+      </div>
+    </div>
+  </div>
+</form>
+<p>product-update works!</p>

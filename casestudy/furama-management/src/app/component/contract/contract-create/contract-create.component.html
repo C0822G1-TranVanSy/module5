@@ -23,10 +23,9 @@
     <div class="mb-3 row">
       <label class="col-sm-3 col-form-label">Khách hàng thuê dịch vụ</label>
       <div class="col-sm-9">
-        <select class="form-control" th:field="*{customer}">
+        <select class="form-control">
           <option value="">Chọn Khách hàng</option>
-          <option th:each="item: ${customerList}" th:value="${item.id}"
-                  th:text="${item.name}"></option>
+
         </select>
       </div>
     </div>

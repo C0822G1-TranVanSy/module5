@@ -33,16 +33,16 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td >1</td>
-    <td >Kim cương</td>
-    <td >Trần Văn Sỹ</td>
-    <td >20-05-1997</td>
-    <td >Nam</td>
-    <td >19462326464</td>
-    <td >0969502557</td>
-    <td >tranvansy197@gmail.com</td>
-    <td>Quảng Bình</td>
+  <tr *ngFor="let item of customerList, index as i">
+    <td >{{i+1}}</td>
+    <td >{{item.customerType.name}}</td>
+    <td >{{item.customerName}}</td>
+    <td >{{item.dateOfBirth}}</td>
+    <td >{{item.gender}}</td>
+    <td >{{item.idCard}}</td>
+    <td >{{item.phoneNumber}}</td>
+    <td >{{item.email}}</td>
+    <td>{{item.address}}</td>
     <td>
       <a routerLink="/customer-update" class="btn btn-warning">Update</a>
     </td>

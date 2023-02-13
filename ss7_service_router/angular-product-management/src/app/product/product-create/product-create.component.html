@@ -20,6 +20,7 @@
     <tr>
       <td>Thể loại</td>
       <td><select formControlName="category">
+        <option value="null" [selected]="true">Chọn category</option>
         <option *ngFor="let item of categories" [ngValue]="item">{{item.nameCategory}}</option>
       </select></td>
     </tr>

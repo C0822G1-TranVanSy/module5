@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Product} from '../model/product';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Category} from '../model/category';
+
 
 @Injectable({
   providedIn: 'root'
@@ -35,9 +35,9 @@ export class ProductService {
       return this.httpClient.delete('http://localhost:3000/products/' + id);
   }
 
-  searchByNameAndCategory(nameSearch: string, category: string) {
+  searchByNameAndCategory(nameSearch: string, categoryId: number) {
     // const text = JSON.stringify(category);
-    return this.httpClient.get<Product[]>('http://localhost:3000/products?name_like=' + nameSearch + '&&category=' + category);
+    return this.httpClient.get<Product[]>('http://localhost:3000/products?name_like=' + nameSearch + '&category.id=' + categoryId);
   }
   searchName(nameSearch: string) {
     return this.httpClient.get<Product[]>('http://localhost:3000/products?name_like=' + nameSearch);

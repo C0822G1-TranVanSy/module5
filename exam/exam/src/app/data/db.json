@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": 4,
+      "name": "Trần Sỹ",
+      "gender": false,
+      "startDate": "2023-02-17",
+      "endDate": "2023-02-25",
+      "phoneNumber": "0373213122",
+      "category": {
+        "id": 2,
+        "categoryName": "Vietnam"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Trần Sỹ1",
+      "gender": false,
+      "startDate": "2023-02-16",
+      "endDate": "2023-03-02",
+      "phoneNumber": "0373213122",
+      "category": {
+        "id": 2,
+        "categoryName": "Vietnam"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Trần Sỹ",
+      "gender": true,
+      "startDate": "2023-02-08",
+      "endDate": "2023-02-09",
+      "phoneNumber": "0969555555",
+      "category": {
+        "id": 3,
+        "categoryName": "USA"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "categoryName": "Japan"
+    },
+    {
+      "id": 2,
+      "categoryName": "Vietnam"
+    },
+    {
+      "id": 3,
+      "categoryName": "USA"
+    }
+  ]
+}
