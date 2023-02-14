@@ -3,7 +3,7 @@ import {FacilityType} from './facility-type';
 
 export interface Facility {
   id: number;
-  facilityName: string;
+  name: string;
   area: number;
   cost: number;
   maxPeople: number;

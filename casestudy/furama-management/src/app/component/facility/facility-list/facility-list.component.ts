@@ -11,7 +11,7 @@ import {FacilityType} from '../../../model/facility-type';
 export class FacilityListComponent implements OnInit {
   @Input() facility: Facility = {
     id: 0,
-    facilityName: '',
+    name: '',
     area: 0,
     cost: 0,
     maxPeople: 0,
@@ -59,7 +59,7 @@ export class FacilityListComponent implements OnInit {
   facilityList: Facility[] = [
     {
       id: 1,
-      facilityName: 'Villa Beach Front',
+      name: 'Villa Beach Front',
       area: 25000,
       cost: 1000000,
       maxPeople: 10,
@@ -73,7 +73,7 @@ export class FacilityListComponent implements OnInit {
     },
     {
       id: 2,
-      facilityName: 'House Princess 01',
+      name: 'House Princess 01',
       area: 14000,
       cost: 5000000,
       maxPeople: 7,
@@ -98,11 +98,4 @@ export class FacilityListComponent implements OnInit {
     this.facility = item;
   }
 
-  delete(id: number) {
-    for (let i = 0; i < this.facilityList.length; i++) {
-      if (this.facilityList[i].id === id) {
-        this.facilityList.splice(i, 1);
-      }
-    }
-  }
 }

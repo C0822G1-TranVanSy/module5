@@ -2,28 +2,71 @@
   "customers": [
     {
       "id": 1,
-      "customerType":
-        {
-          "id": 1,
-          "name": "Diamond"
-        },
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
       "customerName": "Trần Văn Sỹ",
-      "dateOfBirth": "20-05-1997",
+      "dateOfBirth": "1997-05-20",
       "gender": true,
       "idCard": "194623960",
       "phoneNumber": "0969500694",
       "email": "tranvansy205@gmail.com",
       "address": "Quảng Bình"
+    },
+    {
+      "id": 2,
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "customerName": "Trần Sỹ",
+      "dateOfBirth": "2023-02-10",
+      "gender": true,
+      "idCard": "12312312",
+      "phoneNumber": "0917811340",
+      "email": "Tranvansy205@gmail.com",
+      "address": "Xt"
+    },
+    {
+      "id": 3,
+      "customerType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "customerName": "Trần Sỹ21212",
+      "dateOfBirth": "2023-02-24",
+      "gender": false,
+      "idCard": "3131231231",
+      "phoneNumber": "0917811342",
+      "email": "Tranvansy205@gmail.com",
+      "address": "Xt"
+    },
+    {
+      "id": 4,
+      "customerType": {
+        "id": 3,
+        "name": "Silver"
+      },
+      "customerName": "Diễm",
+      "dateOfBirth": "2023-02-17",
+      "gender": true,
+      "idCard": "12121212",
+      "phoneNumber": "0917811340",
+      "email": "fffffff@gmail.com",
+      "address": "Xt"
     }
   ],
   "customerTypes": [
     {
       "id": 1,
       "name": "Diamond"
-    },{
+    },
+    {
       "id": 2,
       "name": "Gold"
-    },{
+    },
+    {
       "id": 3,
       "name": "Silver"
     }

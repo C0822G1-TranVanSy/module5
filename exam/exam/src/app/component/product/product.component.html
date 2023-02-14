@@ -1,3 +1,11 @@
+<div>
+<input class="form-control me-2" type="search" #nameSearch placeholder="Search" aria-label="Search">
+  <select class="form-select" [(ngModel)]="categoryId">
+    <option [ngValue]="0">Chọn Category</option>
+    <option *ngFor="let item of categoryList" [ngValue]="item.id">{{item.categoryName}}</option>
+  </select>
+  <button class="btn btn-outline-success" (click)="searchByNameAndCategoryId(nameSearch.value,categoryId)" type="button">Search</button>
+</div>
 <h2 class="text-danger text-center">Danh sách</h2>
 <a class="btn btn-success" routerLink="/product-create">Thêm mới</a>
 <table class="table table-striped">

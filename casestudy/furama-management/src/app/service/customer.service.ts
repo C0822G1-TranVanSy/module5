@@ -11,10 +11,18 @@ export class CustomerService {
   }
 
   getAll(): Observable<Customer[]> {
-    return this.httpClient.get<Customer[]>('http://localhost:3000/customers');
+    return this.httpClient.get<Customer[]>('http://localhost:3000/customers?_sort=customerName&_order=desc');
+  }
+
+  findById(id: number) {
+    return this.httpClient.get<Customer>('http://localhost:3000/customers' + id);
   }
 
   add(customer: Customer) {
     return this.httpClient.post('http://localhost:3000/customers', customer);
+  }
+
+  edit(value: any) {
+    return this.httpClient.put('http://localhost:3000/customers' + value.id, value);
   }
 }

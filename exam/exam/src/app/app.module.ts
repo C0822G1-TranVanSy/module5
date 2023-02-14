@@ -7,7 +7,7 @@ import { ProductComponent } from './component/product/product.component';
 import { ProductCreateComponent } from './component/product-create/product-create.component';
 import { ProductUpdateComponent } from './component/product-update/product-update.component';
 import {HttpClientModule} from '@angular/common/http';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,12 +16,13 @@ import {ReactiveFormsModule} from '@angular/forms';
     ProductCreateComponent,
     ProductUpdateComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

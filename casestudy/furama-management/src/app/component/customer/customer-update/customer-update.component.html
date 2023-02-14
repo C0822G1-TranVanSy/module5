@@ -1,65 +1,64 @@
 
 <h2 class="d-flex justify-content-center text-danger">Chỉnh sửa khách hàng</h2>
-<form action="/customer/create" method="post">
+<form [formGroup]="customerGroup" (ngSubmit)="submit()" method="post">
   <div class="m-4 row">
     <div class="col-sm-2">Customer Type Name</div>
     <div class="col-sm-10">
-      <select class="form-select">
+      <select class="form-select" formControlName="customerType">
         <option value="">Customer Type Name</option>
-        <option value="">Diamond</option>
-        <option value="">Gold</option>
-        <option value="">Silver</option>>
+        <option *ngFor="let item of customerTypeList" [ngValue]="item">{{item.name}}</option>
       </select>
     </div>
   </div>
   <div class="m-4 row">
     <label  class="col-sm-2 col-form-label">Name: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" formControlName="customerName">
+      <p class="text-danger" *ngIf="customerGroup.controls.customerName.hasError('invalidTitle')">Chữ cái đầu phải viết hoa</p>
     </div>
   </div>
   <div class="m-4 row">
     <label  class="col-sm-2 col-form-label">Date Of Birth: </label>
     <div class="col-sm-10">
-      <input type="date" class="form-control" >
+      <input type="date" class="form-control" formControlName="dateOfBirth">
     </div>
   </div>
   <div class="m-4 row">
     <label class="col-sm-2">Gender: </label>
     <div class="col-sm-10">
       <label>
-        <input type="radio" value="Nam">
+        <input type="radio" [value]="true" formControlName="gender">
       </label>Nam
       <label>
-        <input type="radio"  value="Nữ">
+        <input type="radio"  [value]="false" formControlName="gender">
       </label>Nữ
     </div>
   </div>
   <div class="m-4 row">
-    <label class="col-sm-2 col-form-label">ID Card: </label>
+    <label class="col-sm-2 col-form-label" >ID Card: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" >
+      <input type="text" class="form-control" formControlName="idCard">
 
     </div>
   </div>
   <div class="m-4 row">
     <label class="col-sm-2 col-form-label">Phone Number: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
-
+      <input type="text" class="form-control" formControlName="phoneNumber">
+      <p class="text-danger" *ngIf="customerGroup.controls.phoneNumber.hasError('pattern')">Không đúng định dạng</p>
     </div>
   </div>
   <div class="m-4 row">
     <label class="col-sm-2 col-form-label">Email: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
-      <p style="position: absolute" class="text-danger"></p>
+      <input type="text" class="form-control" formControlName="email">
+      <p class="text-danger" *ngIf="customerGroup.controls.email.hasError('pattern')">Không đúng định dạng</p>
     </div>
   </div>
   <div class="m-4 row">
     <label class="col-sm-2 col-form-label">Address: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" formControlName="address">
     </div>
   </div>
   <button type="submit" class="d-flex justify-content-center" style="margin: 0 auto">Save</button>

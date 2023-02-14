@@ -1,59 +1,56 @@
 
 <h2 class="d-flex justify-content-center text-danger">Thêm mới dịch vụ</h2>
-<form action="/facility/update" method="post" >
+<form [formGroup]="facilityGroup" (ngSubmit)="submit()" >
   <input type="hidden" name="id">
-
-  <div class="m-4 row">
-    <div class="col-sm-2">Facility Type Name</div>
-    <div class="col-sm-10">
-      <select  id="facilityType" class="form-select bg-dark text-light" onchange="showEdit()">
-        <option> 1</option>
-        <option> 2</option>
-        <option> 3</option>
-      </select>
-    </div>
-  </div>
   <div class="m-4 row">
     <label class="col-sm-2 col-form-label">Name: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" >
-
+      <input type="text" class="form-control" formControlName="name">
     </div>
   </div>
   <div class="m-4 row">
     <label class="col-sm-2 col-form-label">Area: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" formControlName="area">
     </div>
   </div>
   <div class="m-4 row">
     <label  class="col-sm-2 col-form-label">Cost: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" formControlName="cost">
     </div>
   </div>
   <div class="m-4 row">
     <label  class="col-sm-2 col-form-label">Max People: </label>
     <div class="col-sm-10">
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" formControlName="maxPeople">
     </div>
   </div>
   <div class="m-4 row">
     <div class="col-sm-2">Rent Type Name</div>
     <div class="col-sm-10">
-      <select class="form-select">
+      <select class="form-select" formControlName="rentType">
         <option>Ngày</option>
         <option>Tháng</option>
         <option>Năm</option>
       </select>
     </div>
   </div>
-
+  <div class="m-4 row">
+    <div class="col-sm-2">Facility Type Name</div>
+    <div class="col-sm-10">
+      <select  id="facilityType" class="form-select bg-dark text-light" formControlName="facilityType" onchange="showEdit()">
+        <option> 1</option>
+        <option> 2</option>
+        <option> 3</option>
+      </select>
+    </div>
+  </div>
   <div id="standardRoomAdd">
     <div class="m-4 row">
-      <label class="col-sm-2 col-form-label">Standard Room: </label>
+      <label class="col-sm-2 col-form-label" >Standard Room: </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="standardRoom">
       </div>
     </div>
   </div>
@@ -62,7 +59,7 @@
       <label class="col-sm-2 col-form-label">Description Other
         Convenience: </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="descriptionOtherConvenience">
       </div>
     </div>
   </div>
@@ -70,7 +67,7 @@
     <div class="m-4 row">
       <label  class="col-sm-2 col-form-label">Pool Area: </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="poolArea">
       </div>
     </div>
   </div>
@@ -78,7 +75,7 @@
     <div class="m-4 row">
       <label class="col-sm-2 col-form-label">Number Of Floors: </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" >
+        <input type="text" class="form-control" formControlName="numberOfFloors">
       </div>
     </div>
   </div>
@@ -86,12 +83,12 @@
     <div class="m-4 row">
       <label class="col-sm-2 col-form-label">Facility Free: </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="facilityFree">
       </div>
     </div>
   </div>
 
-  <button type="submit" class="d-flex justify-content-center" style="margin: 0 auto">Save</button>
+  <button type="submit" class="d-flex justify-content-center">Save</button>
 </form>
 
 <script>

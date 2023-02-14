@@ -29,4 +29,12 @@ export class ProductService {
   update(product: Product) {
     return this.httpClient.put('http://localhost:3000/products/' + product.id, product);
   }
+
+  searchByNameAndCategoryId(name: string, categoryId: number) {
+    return this.httpClient.get<Product[]>('http://localhost:3000/products?name_like=' + name + '&category.id=' + categoryId);
+  }
+
+  searchByName(name: string) {
+    return this.httpClient.get<Product[]>('http://localhost:3000/products?name_like=' + name);
+  }
 }

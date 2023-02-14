@@ -36,7 +36,6 @@ export class ProductService {
   }
 
   searchByNameAndCategory(nameSearch: string, categoryId: number) {
-    // const text = JSON.stringify(category);
     return this.httpClient.get<Product[]>('http://localhost:3000/products?name_like=' + nameSearch + '&category.id=' + categoryId);
   }
   searchName(nameSearch: string) {
