@@ -5,7 +5,13 @@ import {Facility} from '../model/facility';
   providedIn: 'root'
 })
 export class FacilityService {
-  facilityList: Facility[] = [
-  ];
   constructor() { }
+
+  getAll() {
+
+  }
+
+  add() {
+
+  }
 }

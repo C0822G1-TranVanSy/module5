@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-facility-edit',
@@ -9,17 +9,17 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class FacilityEditComponent implements OnInit {
   facilityGroup: FormGroup = new FormGroup({
     id: new FormControl(),
-    name: new FormControl(),
-    area: new FormControl(),
-    cost: new FormControl(),
-    maxPeople: new FormControl(),
-    rentType: new FormControl(),
-    facilityType: new FormControl(),
-    standardRoom: new FormControl(),
-    descriptionOtherConvenience: new FormControl(),
-    poolArea: new FormControl(),
-    numberOfFloors: new FormControl(),
-    facilityFree: new FormControl()
+    name: new FormControl('', [Validators.required]),
+    area: new FormControl('', [Validators.required]),
+    cost: new FormControl('', [Validators.required]),
+    maxPeople: new FormControl('', [Validators.required]),
+    rentType: new FormControl('', [Validators.required]),
+    facilityType: new FormControl('', [Validators.required]),
+    standardRoom: new FormControl('', [Validators.required]),
+    descriptionOtherConvenience: new FormControl('', [Validators.required]),
+    poolArea: new FormControl('', [Validators.required]),
+    numberOfFloors: new FormControl('', [Validators.required, Validators.pattern('\\d+')]),
+    facilityFree: new FormControl('', [Validators.required]),
   });
   constructor() { }
 
@@ -27,6 +27,5 @@ export class FacilityEditComponent implements OnInit {
   }
 
   submit() {
-
   }
 }
