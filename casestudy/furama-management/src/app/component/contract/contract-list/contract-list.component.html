@@ -2,275 +2,284 @@
 
 
 
-<!--<h2 class="d-flex justify-content-center text-danger">Contract List</h2>-->
+<h2 class="d-flex justify-content-center text-danger">Contract List</h2>
 
-<!--<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"-->
-<!--        data-bs-target="#addModal">-->
-<!--  Thêm mới hợp đồng-->
-<!--</button>-->
-<!--&lt;!&ndash;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; Thêm mới -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-<!--<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addLabel" aria-hidden="true">-->
-<!--  <div class="modal-dialog">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--        <h5 class="modal-title" id="addLabel">Thêm hợp đồng</h5>-->
-<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--      </div>-->
-<!--      <form  method="post" >-->
-<!--        <div class="modal-body">-->
+<button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+        data-bs-target="#addModal">
+  Thêm mới hợp đồng
+</button>
+<!-------------------------------------------- Thêm mới ----------------->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addLabel">Thêm hợp đồng</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form  method="post" >
+        <div class="modal-body">
 
-<!--          <div class="mb-3 row">-->
-<!--            <label  class="col-sm-3 col-form-label ">Ngày bắt đầu</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <input type="date" class="form-control" >-->
+          <div class="mb-3 row">
+            <label  class="col-sm-3 col-form-label ">Ngày bắt đầu</label>
+            <div class="col-sm-9">
+              <input type="date" class="form-control" >
 
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <label  class="col-sm-3 col-form-label">Ngày kết thúc</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <input type="date" class="form-control">-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <label class="col-sm-3 col-form-label">Tiền đặt cọc</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <input type="text" class="form-control" >-->
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label  class="col-sm-3 col-form-label">Ngày kết thúc</label>
+            <div class="col-sm-9">
+              <input type="date" class="form-control">
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Tiền đặt cọc</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" >
 
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <label class="col-sm-3 col-form-label">Khách hàng thuê dịch vụ</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <select class="form-control" th:field="*{customer}">-->
-<!--                <option value="">Chọn Khách hàng</option>-->
-<!--                <option th:each="item: ${customerList}" th:value="${item.id}"-->
-<!--                        th:text="${item.name}"></option>-->
-<!--              </select>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <label class="col-sm-3 col-form-label">Nhân viên</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <select class="form-control" >-->
-<!--                <option value="">Chọn Nhân Viên</option>-->
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Khách hàng thuê dịch vụ</label>
+            <div class="col-sm-9">
+              <select class="form-control" th:field="*{customer}">
+                <option value="">Chọn Khách hàng</option>
+                <option th:each="item: ${customerList}" th:value="${item.id}"
+                        th:text="${item.name}"></option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Nhân viên</label>
+            <div class="col-sm-9">
+              <select class="form-control" >
+                <option value="">Chọn Nhân Viên</option>
 
-<!--              </select>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <label class="col-sm-3 col-form-label">Dịch vụ</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <select class="form-control" >-->
-<!--                <option value="">Chọn dịch vụ</option>-->
-<!--              </select>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="modal-footer">-->
-<!--          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-<!--          <button type="submit" class="btn btn-primary">Save changes</button>-->
-<!--        </div>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Dịch vụ</label>
+            <div class="col-sm-9">
+              <select class="form-control" >
+                <option value="">Chọn dịch vụ</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
-<!--<table class="table table-striped table-hover" style="&#45;&#45;bs-table-hover-bg: lightpink">-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th scope="col">#</th>-->
-<!--    <th scope="col">Facility Name</th>-->
-<!--    <th scope="col">Customer Name</th>-->
-<!--    <th scope="col">Start Date</th>-->
-<!--    <th scope="col">End Date</th>-->
-<!--    <th scope="col">Deposit</th>-->
-<!--    <th scope="col">Total Payment</th>-->
-<!--    <th scope="col">Attach Facility</th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody id="my-body-contract">-->
-<!--  <tr>-->
-<!--    <td>1</td>-->
-<!--    <td >Villa</td>-->
-<!--    <td >Trần Văn Sỹ</td>-->
-<!--    <td >20-05-1997</td>-->
-<!--    <td >30-05-1997</td>-->
-<!--    <td >0</td>-->
-<!--    <td >100000000</td>-->
-<!--    <td>-->
-<!--      <button type="button"-->
-<!--              class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal">-->
-<!--        +-->
-<!--      </button>-->
+<table class="table table-striped table-hover" style="--bs-table-hover-bg: lightpink">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Facility Name</th>
+    <th scope="col">Customer Name</th>
+    <th scope="col">Start Date</th>
+    <th scope="col">End Date</th>
+    <th scope="col">Deposit</th>
+    <th scope="col">Total Payment</th>
+    <th scope="col">Attach Facility</th>
+  </tr>
+  </thead>
+  <tbody id="my-body-contract">
+  <tr>
+    <td>1</td>
+    <td >Villa</td>
+    <td >Trần Văn Sỹ</td>
+    <td >20-05-1997</td>
+    <td >30-05-1997</td>
+    <td >0</td>
+    <td >100000000</td>
+    <td>
+      <button type="button"
+              class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal">
+        +
+      </button>
 
-<!--      <button type="button"-->
-<!--              class="btn btn-sm btn-primary" data-bs-toggle="modal"-->
-<!--              data-bs-target="#attach_facility">-->
-<!--        Danh sách dịch vụ đi kèm-->
-<!--      </button>-->
-<!--  </tr>-->
-<!--  </tbody>-->
-<!--</table>-->
+      <button type="button"
+              class="btn btn-sm btn-primary" data-bs-toggle="modal"
+              data-bs-target="#attach_facility">
+        Danh sách dịch vụ đi kèm
+      </button>
+  </tr>
+  </tbody>
+</table>
 
-<!--&lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; Modal update &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-<!--<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-<!--  <div class="modal-dialog modal-xl">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--        <h5 class="modal-title" id="exampleModalLabel">Thay Đổi Hợp đồng </h5>-->
-<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--      </div>-->
-<!--      <form action="/contract/update" method="post" th:object="${contractDto}">-->
-<!--        <div class="modal-body">-->
-<!--          <input type="text" hidden id="idContractEdit" th:field="*{id}">-->
-<!--          <div class="mb-3 row">-->
-<!--            <label th:for="startDate" class="col-sm-3 col-form-label ">Ngày bắt đầu</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <input type="date" class="form-control" id="startDateEdit" th:field="*{startDate}">-->
-<!--              <p th:errors="*{startDate}" th:if="${#fields.hasErrors('startDate')}" class="text-danger"></p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <label th:for="endDate" class="col-sm-3 col-form-label">Ngày kết thúc</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <input type="date" class="form-control" id="endDateEdit" th:field="*{endDate}">-->
-<!--              <p th:errors="*{endDate}" th:if="${#fields.hasErrors('endDate')}" class="text-danger"></p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <label th:for="deposit" class="col-sm-3 col-form-label">Tiền đặt cọc</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <input type="text" class="form-control" id="depositEdit" th:field="*{deposit}">-->
-<!--              <p th:errors="*{deposit}" th:if="${#fields.hasErrors('deposit')}" class="text-danger"></p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <label for="total" class="col-sm-3 col-form-label">Tổng tiền</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <input type="text" class="form-control" id="total" readonly>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <label class="col-sm-3 col-form-label">Khách hàng thuê dịch vụ</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <select class="form-control" th:field="*{customer}" id="customerEdit">-->
-<!--                <option value="">Chọn Khách hàng</option>-->
-<!--                <option th:each="item: ${customerList}" th:value="${item.id}"-->
-<!--                        th:text="${item.name}"></option>-->
-<!--              </select>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <label class="col-sm-3 col-form-label">Nhân viên</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <select class="form-control" th:field="*{employee}" id="employeeEdit" >-->
-<!--                <option value="">Chọn Nhân Viên</option>-->
-<!--                <option th:each="item: ${employeeList}" th:value="${item.id}"-->
-<!--                        th:text="${item.name}"></option>-->
-<!--              </select>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <label class="col-sm-3 col-form-label">Dịch vụ</label>-->
-<!--            <div class="col-sm-9">-->
-<!--              <select class="form-control" th:field="*{facility}" id="facilityEdit">-->
-<!--                <option value="">Chọn dịch vụ</option>-->
-<!--                <option th:each="item: ${facilityList}" th:value="${item.id}"-->
-<!--                        th:text="${item.name}"></option>-->
-<!--              </select>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--          <div class="mb-3 row">-->
-<!--            <span class="col-sm-3 col-form-label">Dịch vụ đi kèm</span>-->
-<!--            <div class="col-sm-9">-->
-<!--              <button type="button" class="btn btn-sm btn-primary" onclick="getContractId()" data-bs-toggle="modal"-->
-<!--                      data-bs-target="#dvdk">-->
-<!--                +-->
-<!--              </button>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="modal-footer d-flex justify-content-center">-->
-<!--          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>-->
-<!--          <button type="submit" class="btn btn-warning">Thay đổi hợp đồng</button>-->
-<!--        </div>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<!------------------------------------------- Modal update ------------------------------------------>
+<div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thay Đổi Hợp đồng </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/contract/update" method="post" th:object="${contractDto}">
+        <div class="modal-body">
+          <input type="text" hidden id="idContractEdit" th:field="*{id}">
+          <div class="mb-3 row">
+            <label th:for="startDate" class="col-sm-3 col-form-label ">Ngày bắt đầu</label>
+            <div class="col-sm-9">
+              <input type="date" class="form-control" id="startDateEdit" th:field="*{startDate}">
+              <p th:errors="*{startDate}" th:if="${#fields.hasErrors('startDate')}" class="text-danger"></p>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label th:for="endDate" class="col-sm-3 col-form-label">Ngày kết thúc</label>
+            <div class="col-sm-9">
+              <input type="date" class="form-control" id="endDateEdit" th:field="*{endDate}">
+              <p th:errors="*{endDate}" th:if="${#fields.hasErrors('endDate')}" class="text-danger"></p>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label th:for="deposit" class="col-sm-3 col-form-label">Tiền đặt cọc</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="depositEdit" th:field="*{deposit}">
+              <p th:errors="*{deposit}" th:if="${#fields.hasErrors('deposit')}" class="text-danger"></p>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="total" class="col-sm-3 col-form-label">Tổng tiền</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="total" readonly>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Khách hàng thuê dịch vụ</label>
+            <div class="col-sm-9">
+              <select class="form-control" th:field="*{customer}" id="customerEdit">
+                <option value="">Chọn Khách hàng</option>
+                <option th:each="item: ${customerList}" th:value="${item.id}"
+                        th:text="${item.name}"></option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Nhân viên</label>
+            <div class="col-sm-9">
+              <select class="form-control" th:field="*{employee}" id="employeeEdit" >
+                <option value="">Chọn Nhân Viên</option>
+                <option th:each="item: ${employeeList}" th:value="${item.id}"
+                        th:text="${item.name}"></option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Dịch vụ</label>
+            <div class="col-sm-9">
+              <select class="form-control" th:field="*{facility}" id="facilityEdit">
+                <option value="">Chọn dịch vụ</option>
+                <option th:each="item: ${facilityList}" th:value="${item.id}"
+                        th:text="${item.name}"></option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <span class="col-sm-3 col-form-label">Dịch vụ đi kèm</span>
+            <div class="col-sm-9">
+              <button type="button" class="btn btn-sm btn-primary" onclick="getContractId()" data-bs-toggle="modal"
+                      data-bs-target="#dvdk">
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</button>
+          <button type="submit" class="btn btn-warning">Thay đổi hợp đồng</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
-<!--<div class="modal fade" id="dvdk" tabindex="-1" aria-labelledby="modal1" aria-hidden="true">-->
-<!--  <div class="modal-dialog ">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--        <h5 class="modal-title" id="modal1">Thêm dịch vụ đi kèm</h5>-->
-<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--      </div>-->
+<div class="modal fade" id="dvdk" tabindex="-1" aria-labelledby="modal1" aria-hidden="true">
+  <div class="modal-dialog ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal1">Thêm dịch vụ đi kèm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
 
-<!--      <div class="modal-body">-->
-<!--        <form th:object="${contractDetail}">-->
-<!--          <input type="hidden" id="contractIdPro" th:field="*{contract}" >-->
-<!--          <div class="mb-3 row">-->
-<!--            <label class="col-sm-3 col-form-label ">Dịch vụ đi kèm</label>-->
+      <div class="modal-body">
+        <form th:object="${contractDetail}">
+          <input type="hidden" id="contractIdPro" th:field="*{contract}" >
+          <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label ">Dịch vụ đi kèm</label>
 
-<!--            <div class="col-sm-9">-->
-<!--              <select class="form-control" id="attachFacilityPro" th:field="*{attachFacility}">-->
-<!--                <option value="">Chọn dịch vụ đi kèm</option>-->
-<!--                <option th:each="attachFacility: ${attachFacilityList}" th:value="${attachFacility.id}" th:text="${attachFacility.name}">Kara</option>-->
+            <div class="col-sm-9">
+              <select class="form-control" id="attachFacilityPro" th:field="*{attachFacility}">
+                <option value="">Chọn dịch vụ đi kèm</option>
+                <option th:each="attachFacility: ${attachFacilityList}" th:value="${attachFacility.id}" th:text="${attachFacility.name}">Kara</option>
 
-<!--              </select>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </form>-->
-<!--        <div class="mb-3 row">-->
-<!--          <label class="col-sm-3 col-form-label ">Số lượng</label>-->
-<!--          <div class="col-sm-9">-->
-<!--            <input class="form-control" type="text" id="quantityPro" >-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="modal-footer d-flex justify-content-center">-->
-<!--        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">-->
-<!--          Hủy bỏ-->
-<!--        </button>-->
-<!--        <button type="button" class="btn btn-warning" onclick="addNewContractDetail()" >Tạo hợp đồng</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+              </select>
+            </div>
+          </div>
+        </form>
+        <div class="mb-3 row">
+          <label class="col-sm-3 col-form-label ">Số lượng</label>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" id="quantityPro" >
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Hủy bỏ
+        </button>
+        <button type="button" class="btn btn-warning" onclick="addNewContractDetail()" >Tạo hợp đồng</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-<!--<div class="modal fade" id="attach_facility" tabindex="-1" aria-labelledby="attach_facilityLabel" aria-hidden="true">-->
-<!--  <div class="modal-dialog modal-xl">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--        <h5 class="modal-title" id="attach_facilityLabel">Danh sách dịch vụ đi kèm</h5>-->
-<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--      </div>-->
-<!--      <div class="modal-body">-->
-<!--        <table class="table">-->
-<!--          <thead>-->
-<!--          <tr>-->
-<!--            <th>STT</th>-->
-<!--            <th>Attach Facility Name</th>-->
-<!--            <th>Cost</th>-->
-<!--            <th>Unit</th>-->
-<!--            <th>Status</th>-->
-<!--            <th>Quantity</th>-->
-<!--            <th>Total</th>-->
-<!--          </tr>-->
-<!--          </thead>-->
-<!--          <tbody id="my-body">-->
-<!--          </tbody>-->
-<!--        </table>-->
-<!--      </div>-->
-<!--      <div class="modal-footer">-->
-<!--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-<!--        &lt;!&ndash;                <button type="button" class="btn btn-primary">Save changes</button>&ndash;&gt;-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="modal fade" id="attach_facility" tabindex="-1" aria-labelledby="attach_facilityLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="attach_facilityLabel">Danh sách dịch vụ đi kèm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Attach Facility Name</th>
+            <th>Cost</th>
+            <th>Unit</th>
+            <th>Status</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+          </thead>
+          <tbody id="my-body">
+          <tr>
+            <th>1</th>
+            <th>Villa</th>
+            <th>10000</th>
+            <th>1</th>
+            <th>Không có</th>
+            <th>10</th>
+            <th>2000000</th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <!--                <button type="button" class="btn btn-primary">Save changes</button>-->
+      </div>
+    </div>
+  </div>
+</div>
 
 

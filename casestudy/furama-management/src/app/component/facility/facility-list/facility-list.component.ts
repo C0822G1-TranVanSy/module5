@@ -98,4 +98,11 @@ export class FacilityListComponent implements OnInit {
     this.facility = item;
   }
 
+  delete(id: number) {
+    for (let i = 0; i < this.facilityList.length ; i++) {
+      if (id === this.facilityList[i].id) {
+        this.facilityList.splice(i, 1);
+      }
+    }
+  }
 }

@@ -15,7 +15,7 @@ export class CustomerService {
   }
 
   findById(id: number) {
-    return this.httpClient.get<Customer>('http://localhost:3000/customers' + id);
+    return this.httpClient.get<Customer>('http://localhost:3000/customers/' + id);
   }
 
   add(customer: Customer) {
@@ -23,6 +23,20 @@ export class CustomerService {
   }
 
   edit(value: any) {
-    return this.httpClient.put('http://localhost:3000/customers' + value.id, value);
+    return this.httpClient.put('http://localhost:3000/customers/' + value.id, value);
+  }
+
+  delete(id: number) {
+    return this.httpClient.delete('http://localhost:3000/customers/' + id);
+  }
+
+  searchAll(nameSearch: string, emailSearch: string, customerTypeId: number) {
+    return this.httpClient.get<Customer[]>('http://localhost:3000/customers?customerName_like=' + nameSearch
+    + '&email_like=' + emailSearch + '&customerType.id=' + customerTypeId);
+  }
+
+  searchByNameAndEmail(nameSearch: string, emailSearch: string) {
+    return this.httpClient.get<Customer[]>('http://localhost:3000/customers?customerName_like=' + nameSearch
+    + '&email_like=' + emailSearch);
   }
 }

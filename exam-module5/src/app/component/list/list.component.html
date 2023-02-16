@@ -1,0 +1,60 @@
+
+<h1 class="text-danger text-center">Danh sách bệnh án</h1>
+<table class="table table-striped">
+  <thead>
+  <tr class="text-center bg-primary">
+    <th scope="col">STT</th>
+    <th scope="col">Mã bệnh án</th>
+    <th scope="col">Mã bệnh nhân</th>
+    <th scope="col">Tên bệnh nhân</th>
+    <th scope="col">Ngày nhập viện</th>
+    <th scope="col">Ngày ra viện</th>
+    <th scope="col">Lý do nhập viện</th>
+    <th scope="col">Phương pháp điều trị</th>
+    <th scope="col">Bác sĩ</th>
+    <th scope="col">Edit</th>
+    <th scope="col">Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let item of benhNhanList, index as i" class="text-center align-middle">
+    <td>{{i+1}}</td>
+    <td>{{item.benhAn.maBenhAn}}</td>
+    <td>{{item.maBenhNhan}}</td>
+    <td>{{item.tenBenhNhan}}</td>
+    <td>{{item.ngayNhapVien | date: 'dd-MM-yyyy'}}</td>
+    <td>{{item.ngayRaVien | date: 'dd-MM-yyyy'}}</td>
+    <td>{{item.lyDo}}</td>
+    <td>{{item.phuongPhap}}</td>
+    <td>{{item.bacSi}}</td>
+    <td>
+      <button class="btn btn-warning" [routerLink]="['/edit',item.id]">Chỉnh sửa</button>
+    </td>
+    <td>
+      <button (click)="getItem(item)" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Xóa
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!------------------------------------- Modal Delete ---------------------------------------->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn xóa thông tin bệnh án có mã <span class="text-danger">{{maBenhAn}}</span> không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="delete(benhNhan.id)" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,11 @@
 
 <h2 class="d-flex justify-content-center text-danger">Chỉnh sửa khách hàng</h2>
+<div class="card bg-warning offset-3 col-6">
 <form [formGroup]="customerGroup" (ngSubmit)="submit()" method="post">
   <div class="m-4 row">
     <div class="col-sm-2">Customer Type Name</div>
     <div class="col-sm-10">
-      <select class="form-select" formControlName="customerType">
+      <select class="form-select" formControlName="customerType" [compareWith]="compareFn">
         <option value="">Customer Type Name</option>
         <option *ngFor="let item of customerTypeList" [ngValue]="item">{{item.name}}</option>
       </select>
@@ -63,3 +64,4 @@
   </div>
   <button type="submit" class="d-flex justify-content-center" style="margin: 0 auto">Save</button>
 </form>
+</div>

@@ -1,0 +1,46 @@
+<h2 class="text-danger text-center">Thêm mới</h2>
+<form >
+  <div class="row">
+    <div class="offset-3 col-6 card p-2 bg-light">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name: </label>
+        <input type="text" class="form-control" id="name" f="name">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Gender: </label>
+        <div>
+          <input class="form-check-input" m="selectedOption" type="radio" v="true" f="gender">Nam
+          <input class="form-check-input" type="radio" v="false" f="gender">Nữ
+        </div>
+      </div>
+      <div class="mb-3" >
+        <label for="startDate" class="form-label">Start date: </label>
+        <input type="date" class="form-control" id="startDate" f="startDate">
+      </div>
+      <div class="mb-3" >
+        <label for="endDate" class="form-label">End date: </label>
+
+        <input type="date" class="form-control" id="endDate" f="endDate">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email: </label>
+
+        <input type="text" class="form-control" id="email" f="email">
+      </div>  <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone: </label>
+        <input type="text" class="form-control" id="phoneNumber" f="phoneNumber">
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">CustomerType: </label>
+        <select class="form-select" f="customerType" id="category">
+          <option v="null" >Chọn CustomerType</option>
+          <option  v="item">item.name</option>
+        </select>
+      </div>
+      <div class="text-center">
+        <button class="w-25 btn btn-success" type="submit" >Save</button>
+      </div>
+    </div>
+  </div>
+</form>
+

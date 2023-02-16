@@ -15,14 +15,14 @@ export class CustomerUpdateComponent implements OnInit {
 
   customerGroup: FormGroup = new FormGroup({
     id: new FormControl(),
-    customerType: new FormControl(),
+    customerType: new FormControl('', [Validators.required]),
     customerName: new FormControl('', [ this.checkTitleCase]),
-    dateOfBirth: new FormControl(),
-    gender: new FormControl(),
-    idCard: new FormControl(),
+    dateOfBirth: new FormControl('', [Validators.pattern('\\d{4}-\\d{2}-\\d{2}')]),
+    gender: new FormControl('', [Validators.required]),
+    idCard: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [Validators.pattern('(0|\\(84\\))(90|91)\\d{7}')]),
     email: new FormControl('', [Validators.pattern('[\\w]+\\@[\\w]+\\.[\\w]+')]),
-    address: new FormControl()
+    address: new FormControl('', [Validators.required])
   });
   customerTypeList: CustomerType[];
   customer: Customer;
@@ -63,10 +63,13 @@ export class CustomerUpdateComponent implements OnInit {
   submit() {
     if (this.customerGroup.valid) {
       this.customerService.edit(this.customerGroup.value).subscribe(next => {
-        alert('Thêm mới thành công');
+        alert('Cập nhất thành công');
         this.router.navigateByUrl('/customer-list');
       });
     }
   }
 
+  compareFn(item1: any, item2: any) {
+    return item1 && item2 ? item1.id === item2.id : item1 === item2;
+  }
 }

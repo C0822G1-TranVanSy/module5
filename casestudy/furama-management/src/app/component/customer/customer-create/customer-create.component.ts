@@ -4,6 +4,7 @@ import {CustomerService} from '../../../service/customer.service';
 import {Router} from '@angular/router';
 import {CustomerTypeService} from '../../../service/customer-type.service';
 import {CustomerType} from '../../../model/customer-type';
+import validate = WebAssembly.validate;
 
 @Component({
   selector: 'app-customer-create',
@@ -13,16 +14,17 @@ import {CustomerType} from '../../../model/customer-type';
 export class CustomerCreateComponent implements OnInit {
   customerGroup: FormGroup = new FormGroup({
     id: new FormControl(),
-    customerType: new FormControl(),
+    customerType: new FormControl('', [Validators.required]),
     customerName: new FormControl('', [ this.checkTitleCase]),
-    dateOfBirth: new FormControl(),
-    gender: new FormControl(),
-    idCard: new FormControl(),
+    dateOfBirth: new FormControl('', [Validators.pattern('\\d{4}-\\d{2}-\\d{2}')]),
+    gender: new FormControl('', [Validators.required]),
+    idCard: new FormControl('', [Validators.required]),
     phoneNumber: new FormControl('', [Validators.pattern('(0|\\(84\\))(90|91)\\d{7}')]),
     email: new FormControl('', [Validators.pattern('[\\w]+\\@[\\w]+\\.[\\w]+')]),
-    address: new FormControl()
+    address: new FormControl('', [Validators.required])
   });
   customerTypeList: CustomerType[];
+  select = true;
 
   constructor(private customerService: CustomerService,
               private router: Router,

@@ -1,7 +1,5 @@
 <h1 class="bg-light text-center">Facility</h1>
 <div class="d-flex justify-content-between m-2">
-  <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#add" type="button">Add Facility
-  </button>
   <button class="btn btn-outline-success" [routerLink]="['/facility-create']" type="button">Add Facility
   </button>
   <form class="d-flex">
@@ -45,9 +43,9 @@
     <td>{{item.facilityFree}}</td>
     <td>
       <!-- Button trigger modal -->
-<!--      <button type="button" (click)="facility = item" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete">-->
-<!--        Delete-->
-<!--      </button>-->
+      <button type="button" (click)="facility = item" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete">
+        Delete
+      </button>
     </td>
     <td>
       <!-- Button trigger modal -->
@@ -183,21 +181,21 @@
   </div>
 </div>
 
-<!--&lt;!&ndash; Modal delete &ndash;&gt;-->
-<!--<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="modal2" aria-hidden="true">-->
-<!--  <div class="modal-dialog">-->
-<!--    <div class="modal-content">-->
-<!--      <div class="modal-header">-->
-<!--        <h5 class="modal-title" id="modal2">Delete</h5>-->
-<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--      </div>-->
-<!--      <div class="modal-body">-->
-<!--        Bạn có muốn xóa <span class="text-danger">{{facility.facilityName}}</span> không?-->
-<!--      </div>-->
-<!--      <div class="modal-footer">-->
-<!--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-<!--        <button type="button" (click)="delete(facility.id)" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+<!-- Modal delete -->
+<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="modal2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal2">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bạn có muốn xóa <span class="text-danger">{{facility.name}}</span> không?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" (click)="delete(facility.id)" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

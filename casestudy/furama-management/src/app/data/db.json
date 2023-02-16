@@ -1,38 +1,10 @@
 {
   "customers": [
     {
-      "id": 1,
-      "customerType": {
-        "id": 1,
-        "name": "Diamond"
-      },
-      "customerName": "Trần Văn Sỹ",
-      "dateOfBirth": "1997-05-20",
-      "gender": true,
-      "idCard": "194623960",
-      "phoneNumber": "0969500694",
-      "email": "tranvansy205@gmail.com",
-      "address": "Quảng Bình"
-    },
-    {
-      "id": 2,
-      "customerType": {
-        "id": 1,
-        "name": "Diamond"
-      },
-      "customerName": "Trần Sỹ",
-      "dateOfBirth": "2023-02-10",
-      "gender": true,
-      "idCard": "12312312",
-      "phoneNumber": "0917811340",
-      "email": "Tranvansy205@gmail.com",
-      "address": "Xt"
-    },
-    {
       "id": 3,
       "customerType": {
-        "id": 2,
-        "name": "Gold"
+        "id": 1,
+        "name": "Diamond"
       },
       "customerName": "Trần Sỹ21212",
       "dateOfBirth": "2023-02-24",
@@ -43,17 +15,45 @@
       "address": "Xt"
     },
     {
-      "id": 4,
+      "id": 5,
       "customerType": {
-        "id": 3,
-        "name": "Silver"
+        "id": 2,
+        "name": "Gold"
       },
-      "customerName": "Diễm",
-      "dateOfBirth": "2023-02-17",
-      "gender": true,
-      "idCard": "12121212",
+      "customerName": "Phúc Chó",
+      "dateOfBirth": "2023-02-02",
+      "gender": false,
+      "idCard": "1323213",
       "phoneNumber": "0917811340",
-      "email": "fffffff@gmail.com",
+      "email": "Phucga@gmail.com",
+      "address": "Xt"
+    },
+    {
+      "id": 6,
+      "customerType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "customerName": "Phúc adsdas",
+      "dateOfBirth": "2023-02-02",
+      "gender": false,
+      "idCard": "1323213",
+      "phoneNumber": "0917811340",
+      "email": "Phucga11@gmail.com",
+      "address": "Xt"
+    },
+    {
+      "id": 7,
+      "customerType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "customerName": "Phúc Chádasđó",
+      "dateOfBirth": "2023-02-02",
+      "gender": false,
+      "idCard": "1323213",
+      "phoneNumber": "0917811340",
+      "email": "Phucga@gmail.com",
       "address": "Xt"
     }
   ],
