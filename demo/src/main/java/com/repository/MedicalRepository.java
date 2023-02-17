@@ -25,5 +25,6 @@ public interface MedicalRepository extends JpaRepository<MedicalRecord,Integer> 
     void update(@Param("code") String code,@Param("patientName") String patientName,@Param("startDate") String startDate,@Param("endDate") String endDate,@Param("reason") String reason,@Param("therapeuticMethod") String therapeuticMethod,@Param("doctorId") int doctorId,@Param("id") int id);
 
     @Modifying
-    @Query(value = "INSERT INTO medical_record () VALUES (4, 'Manh', 29, 'Hue', 6500.00 ); ",nativeQuery = true)
+    @Query(value = "INSERT INTO medical_record (code,patient_name,start_date,end_date,reason, therapeutic_method, doctor_id) VALUES (:code, :patientName, :startDate,:endDate,:reason,:therapeuticMethod,:doctorId); ",nativeQuery = true)
+    void add(@Param("code") String code,@Param("patientName") String patientName,@Param("startDate") String startDate,@Param("endDate") String endDate,@Param("reason") String reason,@Param("therapeuticMethod") String therapeuticMethod,@Param("doctorId") int doctorId);
 }

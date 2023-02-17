@@ -52,7 +52,7 @@ public class MedicalRestController {
 
     @PostMapping("/medicals")
     public ResponseEntity<?> addMedical(@RequestBody MedicalRecord medicalRecord) {
-        medicalService.addMedical(medicalRecord.getCode(),medicalRecord.getPatientName(),medicalRecord.getStartDate(),medicalRecord.getEndDate(),medicalRecord.getReason(),medicalRecord.getTherapeuticMethod(),medicalRecord.getDoctor().getId(),medicalRecord.getId());
+        medicalService.addMedical(medicalRecord.getCode(),medicalRecord.getPatientName(),medicalRecord.getStartDate(),medicalRecord.getEndDate(),medicalRecord.getReason(),medicalRecord.getTherapeuticMethod(),medicalRecord.getDoctor().getId());
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

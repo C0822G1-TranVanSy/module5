@@ -13,5 +13,5 @@ public interface IMedicalService {
 
     void update(String code, String patientName, String startDate, String endDate, String reason, String therapeuticMethod, int doctorId, int id);
 
-    addMedical()
+    void addMedical(String code, String patientName, String startDate, String endDate, String reason, String therapeuticMethod, int doctorId);
 }

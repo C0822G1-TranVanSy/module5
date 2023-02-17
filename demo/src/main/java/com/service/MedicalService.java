@@ -32,4 +32,9 @@ public class MedicalService implements IMedicalService {
     public void update(String code, String patientName, String startDate, String endDate, String reason, String therapeuticMethod, int doctorId, int id) {
         medicalRepository.update(code,patientName,startDate,endDate,reason,therapeuticMethod,doctorId,id);
     }
+
+    @Override
+    public void addMedical(String code, String patientName, String startDate, String endDate, String reason, String therapeuticMethod, int doctorId) {
+        medicalRepository.add(code,patientName,startDate,endDate,reason,therapeuticMethod,doctorId);
+    }
 }
