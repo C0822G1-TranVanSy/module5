@@ -1,0 +1,53 @@
+<button type="button" class="btn btn-dark m-2" (click)="backToList()">Back to list</button>
+<h1 class="text-danger text-center">Cập nhật thông tin bệnh án</h1>
+<form [formGroup]="formGroup" (ngSubmit)="update()">
+  <div class="row mb-2">
+    <div class="offset-3 col-6 card p-2 bg-light">
+      <div class="mb-3">
+        <label for="maBenhNhan" class="form-label">Mã Bệnh án: </label>
+        <input type="text" class="form-control" disabled id="maBenhNhan" formControlName="code">
+      </div>
+      <div class="mb-3">
+        <label for="tenBenhNhan" class="form-label">Tên Bệnh Nhân: </label>
+        <input type="text" class="form-control" id="tenBenhNhan" formControlName="patientName">
+        <p class="text-danger" *ngIf="formGroup.controls.patientName.hasError('required')"> Yeu cau phai nhap</p>
+        <p class="text-danger" *ngIf="formGroup.controls.patientName.hasError('pattern')"> Tên không được nhập số</p>
+      </div>
+      <div class="mb-3">
+        <label for="ngayNhapVien" class="form-label">Ngày Nhập viện: </label>
+        <input type="date" class="form-control" id="ngayNhapVien" formControlName="startDate">
+        <p class="text-danger" *ngIf="formGroup.hasError('invalidDate')"> Ngay nhap phai nho hon ngay ra vien</p>
+        <p class="text-danger" *ngIf="formGroup.controls.startDate.hasError('required')"> Yeu cau phai nhap</p>
+        <p class="text-danger" *ngIf="formGroup.controls.startDate.hasError('pattern')"> Sai dinh dang ngay thang</p>
+      </div>
+      <div class="mb-3">
+        <label for="ngayRaVien" class="form-label">Ngày ra viện: </label>
+        <input type="date" class="form-control" id="ngayRaVien" formControlName="endDate">
+        <p class="text-danger" *ngIf="formGroup.controls.endDate.hasError('required')"> Yeu cau phai nhap</p>
+        <p class="text-danger" *ngIf="formGroup.controls.endDate.hasError('pattern')"> Sai dinh dang ngay thang</p>
+      </div>
+      <div class="mb-3">
+        <label for="lyDo" class="form-label">Lý do: </label>
+        <input type="text" class="form-control" id="lyDo" formControlName="reason">
+        <p class="text-danger" *ngIf="formGroup.controls.reason.hasError('required')"> Yeu cau phai nhap</p>
+      </div>
+      <div class="mb-3">
+        <label for="phuongPhap" class="form-label">Phương Pháp: </label>
+        <input type="text" class="form-control" id="phuongPhap" formControlName="therapeuticMethod">
+        <p class="text-danger" *ngIf="formGroup.controls.therapeuticMethod.hasError('required')"> Yeu cau phai nhap</p>
+      </div>
+      <div class="mb-3">
+        <label for="bacSi" class="form-label">Bác Sĩ: </label>
+        <select class="form-select" formControlName="doctor" [compareWith]="compareFn" id="bacSi">
+          <option *ngFor="let item of doctorList" [ngValue]="item">{{item.name}}</option>
+        </select>`
+      </div>
+      <div class="text-center">
+        <button class="w-25 btn btn-success" type="submit">Lưu thông tin</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+

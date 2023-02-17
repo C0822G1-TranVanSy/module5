@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {ProductComponent} from './component/product/product.component';
-import {ProductCreateComponent} from './component/product-create/product-create.component';
-import {ProductUpdateComponent} from './component/product-update/product-update.component';
+import {MedicalListComponent} from './component/medical-list/medical-list.component';
+import {MedicalCreateComponent} from './component/medical-create/medical-create.component';
+import {MedicalUpdateComponent} from './component/medical-update/medical-update.component';
 
 
 const routes: Routes = [
-  {path: 'product', component: ProductComponent},
-  {path: 'product-create', component: ProductCreateComponent},
-  {path: 'product-update/:id', component: ProductUpdateComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'medical-list'},
+  {path: 'medical-list', component: MedicalListComponent},
+  {path: 'medical-create', component: MedicalCreateComponent},
+  {path: 'medical-update/:id', component: MedicalUpdateComponent},
 ];
 
 @NgModule({

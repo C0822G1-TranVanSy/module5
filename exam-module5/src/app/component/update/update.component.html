@@ -5,7 +5,7 @@
     <div class="offset-3 col-6 card p-2 bg-light">
       <div class="mb-3">
         <label for="maBenhAn" class="form-label">Mã Bệnh án: </label>
-        <select class="form-select" formControlName="benhAn" disabled [compareWith]="compareFn" id="maBenhAn">
+        <select class="form-select" formControlName="benhAn" [compareWith]="compareFn" id="maBenhAn">
           <option *ngFor="let item of benhAnList" [ngValue]="item">{{item.maBenhAn}}</option>
         </select>
       </div>

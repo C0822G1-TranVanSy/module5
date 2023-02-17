@@ -3,18 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './component/product/product.component';
-import { ProductCreateComponent } from './component/product-create/product-create.component';
-import { ProductUpdateComponent } from './component/product-update/product-update.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MedicalCreateComponent } from './component/medical-create/medical-create.component';
+import { MedicalUpdateComponent } from './component/medical-update/medical-update.component';
+import { MedicalListComponent } from './component/medical-list/medical-list.component';
+import { HeaderComponent } from './component/layout/header/header.component';
+import { FooterComponent } from './component/layout/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
-    ProductCreateComponent,
-    ProductUpdateComponent
+    MedicalCreateComponent,
+    MedicalUpdateComponent,
+    MedicalListComponent,
+    HeaderComponent,
+    FooterComponent
   ],
     imports: [
         BrowserModule,
