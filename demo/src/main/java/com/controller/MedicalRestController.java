@@ -72,7 +72,7 @@ public class MedicalRestController {
     public ResponseEntity<?> updateDto(@Validated @RequestBody MedicalRecordDto medicalRecordDto, BindingResult bindingResult) {
         medicalRecordDto.validate(medicalRecordDto, bindingResult);
         if (bindingResult.hasErrors()) {
-            return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.NOT_MODIFIED);
+            return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
         }
         medicalService.update(medicalRecordDto.getCode(), medicalRecordDto.getPatientName(), medicalRecordDto.getStartDate(),
                 medicalRecordDto.getEndDate(), medicalRecordDto.getReason(), medicalRecordDto.getTherapeuticMethod(), medicalRecordDto.getDoctor().getId(), medicalRecordDto.getId());
@@ -90,7 +90,7 @@ public class MedicalRestController {
     public ResponseEntity<?> addMedicalDto(@Validated @RequestBody MedicalRecordDto medicalRecordDto, BindingResult bindingResult) {
         medicalRecordDto.validate(medicalRecordDto, bindingResult);
         if (bindingResult.hasErrors()) {
-            return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.NOT_MODIFIED);
+            return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.BAD_REQUEST);
         }
         medicalService.addMedical(medicalRecordDto.getCode(), medicalRecordDto.getPatientName(), medicalRecordDto.getStartDate(),
                 medicalRecordDto.getEndDate(), medicalRecordDto.getReason(), medicalRecordDto.getTherapeuticMethod(), medicalRecordDto.getDoctor().getId());

@@ -10,7 +10,7 @@ public class MedicalRecordDto implements Validator {
     private int id;
     @NotBlank
     private String code;
-    @NotBlank
+    @NotBlank(message = "Ban phai nhap ten benh nhan")
     private String patientName;
     @NotBlank
     private String startDate;

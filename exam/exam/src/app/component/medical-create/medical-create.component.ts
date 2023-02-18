@@ -24,6 +24,9 @@ export class MedicalCreateComponent implements OnInit {
   }, [this.checkDate]);
   medical: Medical;
   doctorList: Doctor[];
+  errors = {
+    patientName: ''
+  };
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router,
               private medicalService: MedicalService, private doctorService: DoctorService) {
@@ -49,6 +52,10 @@ export class MedicalCreateComponent implements OnInit {
         alert('Thêm mới Thành công');
         if (confirm('Bạn có muốn quay về trang List')) {
           this.router.navigateByUrl('medical-list');
+        }
+      }, error => {
+        if (error.error && error.error[0]) {
+          this.errors.patientName = error.error[0].defaultMessage;
         }
       });
     }
