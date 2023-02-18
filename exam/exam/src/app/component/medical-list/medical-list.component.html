@@ -1,4 +1,11 @@
 <button class="btn btn-success m-2" routerLink="/medical-create">Thêm mới</button>
+
+<div class="d-flex justify-content-between">
+  <input class="form-control me-2" type="search" #nameSearch2 placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success" (click)="searchByName(nameSearch2.value)"
+          type="submit">Search
+  </button>
+</div>
 <h1 class="text-danger text-center ">Danh sách bệnh án</h1>
 <table class="table table-striped">
   <thead>
@@ -38,6 +45,12 @@
   </tbody>
 </table>
 
+<div class="text-center m-2">
+  <button class="btn btn-secondary m-2" (click)="getAllPage(number - 1)" *ngIf="last">Previous</button>
+  <span >{{number + 1 + '/' + totalPages}}</span>
+  <button class="btn btn-secondary m-2" (click)="getAllPage(number + 1)" *ngIf="first">Previous</button>
+</div>
+
 <!------------------------------------- Modal Delete ---------------------------------------->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -56,4 +69,3 @@
     </div>
   </div>
 </div>
-

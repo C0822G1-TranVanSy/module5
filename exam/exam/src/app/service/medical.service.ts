@@ -9,9 +9,13 @@ import {Medical} from '../model/medical';
 export class MedicalService {
 
   constructor(private httpClient: HttpClient) { }
-
   getAll(): Observable<Medical[]> {
     return this.httpClient.get<Medical[]>('http://localhost:8080/medicals');
+  }
+
+  getAllPage(page: number): Observable<any>  {
+    const url = `http://localhost:8080/medicals/page?page=`;
+    return this.httpClient.get<any>(url + page);
   }
 
   delete(id: number) {
@@ -19,7 +23,7 @@ export class MedicalService {
   }
 
   update(medical: Medical) {
-    return this.httpClient.put('http://localhost:8080/medicals/', medical);
+    return this.httpClient.put('http://localhost:8080/medicals/update/', medical);
   }
 
   findById(id: number) {
@@ -27,6 +31,10 @@ export class MedicalService {
   }
 
   add(medical: Medical) {
-    return this.httpClient.post('http://localhost:8080/medicals/', medical);
+    return this.httpClient.post('http://localhost:8080/medicals/create/', medical);
+  }
+
+  search(name: string): Observable<Medical[]> {
+    return this.httpClient.get<Medical[]>('http://localhost:8080/medicals/search/' + name);
   }
 }

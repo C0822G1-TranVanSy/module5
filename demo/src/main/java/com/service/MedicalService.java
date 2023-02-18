@@ -4,6 +4,8 @@ import com.model.MedicalRecord;
 import com.repository.MedicalRepository;
 import com.service.impl.IMedicalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +18,16 @@ public class MedicalService implements IMedicalService {
     @Override
     public List<MedicalRecord> getAll() {
         return medicalRepository.getAll();
+    }
+
+    @Override
+    public Page<MedicalRecord> getPageAll(Pageable pageable) {
+        return medicalRepository.getPageAll(pageable);
+    }
+
+    @Override
+    public List<MedicalRecord> searchByName(String name) {
+        return medicalRepository.searchByName(name);
     }
 
     @Override

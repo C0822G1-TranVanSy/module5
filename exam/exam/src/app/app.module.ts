@@ -10,6 +10,7 @@ import { MedicalUpdateComponent } from './component/medical-update/medical-updat
 import { MedicalListComponent } from './component/medical-list/medical-list.component';
 import { HeaderComponent } from './component/layout/header/header.component';
 import { FooterComponent } from './component/layout/footer/footer.component';
+import { PageMedicalDtoComponent } from './model/page-medical-dto/page-medical-dto.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponent } from './component/layout/footer/footer.component';
     MedicalUpdateComponent,
     MedicalListComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PageMedicalDtoComponent
   ],
     imports: [
         BrowserModule,

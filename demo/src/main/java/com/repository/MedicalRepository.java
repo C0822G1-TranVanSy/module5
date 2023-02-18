@@ -1,6 +1,8 @@
 package com.repository;
 
 import com.model.MedicalRecord;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +14,12 @@ import java.util.List;
 public interface MedicalRepository extends JpaRepository<MedicalRecord,Integer> {
     @Query(value = "select m.* from `medical_record` m join `doctor` d on m.doctor_id = d.id",nativeQuery = true)
     List<MedicalRecord> getAll();
+
+    @Query(value = "select m.* from `medical_record` m join `doctor` d on m.doctor_id = d.id",nativeQuery = true)
+    Page<MedicalRecord> getPageAll(Pageable pageable);
+
+    @Query(value = "select m.* from `medical_record` m where m.patient_name like concat('%',:patientName,'%')",nativeQuery = true)
+    List<MedicalRecord> searchByName(@Param("patientName") String patientName);
 
     @Query(value = "select m.* from `medical_record` m join `doctor` d on m.doctor_id = d.id where m.id = :id",nativeQuery = true)
     MedicalRecord findById(@Param("id") int id);
