@@ -14,13 +14,16 @@ export class MedicalListComponent implements OnInit {
   data: any[];
   number: number;
   totalPages: number;
-  pageNumbers: number[];
   first: boolean;
   last: boolean;
+  nameSearch = '';
+  changeNumber: number;
+  previous: number;
   constructor(private medicalService: MedicalService) { }
 
   ngOnInit(): void {
-    this.getAllPage(this.number);
+    // this.getAllPage(this.number);
+    this.searchByName(this.number);
   }
 
   getAllMedical() {
@@ -53,19 +56,15 @@ export class MedicalListComponent implements OnInit {
     this.patientName = item.patientName;
   }
 
-  searchByName(value: string) {
-    if (value === '') {
-      this.medicalService.getAll().subscribe(next => {
-        this.medicalList = next;
-        return;
-      });
-    }
-    this.medicalService.search(value).subscribe(next => {
-      this.medicalList = next;
+  searchByName(page: number) {
+    this.medicalService.search(page, this.nameSearch).subscribe(next => {
       console.log(next);
+      this.medicalList = next.content;
+      this.number = next.number;
+      this.totalPages = next.totalPages;
+      this.first = next.first;
+      this.last = next.last;
     });
   }
 
-  // changePage(number: number) {
-  // }
 }

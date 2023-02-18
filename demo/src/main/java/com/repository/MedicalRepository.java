@@ -19,7 +19,7 @@ public interface MedicalRepository extends JpaRepository<MedicalRecord,Integer> 
     Page<MedicalRecord> getPageAll(Pageable pageable);
 
     @Query(value = "select m.* from `medical_record` m where m.patient_name like concat('%',:patientName,'%')",nativeQuery = true)
-    List<MedicalRecord> searchByName(@Param("patientName") String patientName);
+    Page<MedicalRecord> searchByName(@Param("patientName") String patientName,Pageable pageable);
 
     @Query(value = "select m.* from `medical_record` m join `doctor` d on m.doctor_id = d.id where m.id = :id",nativeQuery = true)
     MedicalRecord findById(@Param("id") int id);

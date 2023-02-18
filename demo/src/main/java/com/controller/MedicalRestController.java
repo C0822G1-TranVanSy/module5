@@ -38,10 +38,10 @@ public class MedicalRestController {
         return new ResponseEntity<>(medicalRecordPage, HttpStatus.OK);
     }
 
-    @GetMapping("/medicals/search/{name}")
-    public ResponseEntity<List<MedicalRecord>> searchByName(@PathVariable String name) {
-        List<MedicalRecord> medicalRecordList = medicalService.searchByName(name);
-        return new ResponseEntity<>(medicalRecordList, HttpStatus.OK);
+    @GetMapping("/medicals/search")
+    public ResponseEntity<Page<MedicalRecord>> searchByName(@RequestParam(name = "searchText",defaultValue = "") String searchText,@PageableDefault(size = 2) Pageable pageable) {
+        Page<MedicalRecord> medicalRecordPage = medicalService.searchByName(searchText,pageable);
+        return new ResponseEntity<>(medicalRecordPage, HttpStatus.OK);
     }
 
     @GetMapping("/medicals/{id}")

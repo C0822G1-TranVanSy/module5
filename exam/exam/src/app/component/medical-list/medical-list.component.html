@@ -1,8 +1,8 @@
 <button class="btn btn-success m-2" routerLink="/medical-create">Thêm mới</button>
 
 <div class="d-flex justify-content-between">
-  <input class="form-control me-2" type="search" #nameSearch2 placeholder="Search" aria-label="Search">
-  <button class="btn btn-outline-success" (click)="searchByName(nameSearch2.value)"
+  <input class="form-control me-2" type="search" [(ngModel)]="nameSearch" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success" (click)="searchByName(number)"
           type="submit">Search
   </button>
 </div>
@@ -46,9 +46,9 @@
 </table>
 
 <div class="text-center m-2">
-  <button class="btn btn-secondary m-2" (click)="getAllPage(number - 1)" *ngIf="last">Previous</button>
+  <button class="btn btn-secondary m-2"  (click)="searchByName(number-1)" *ngIf="!first">Previous</button>
   <span >{{number + 1 + '/' + totalPages}}</span>
-  <button class="btn btn-secondary m-2" (click)="getAllPage(number + 1)" *ngIf="first">Previous</button>
+  <button class="btn btn-secondary m-2" (click)="searchByName(number+1)" *ngIf="!last">Next</button>
 </div>
 
 <!------------------------------------- Modal Delete ---------------------------------------->

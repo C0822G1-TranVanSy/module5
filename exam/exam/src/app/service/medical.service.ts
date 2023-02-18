@@ -34,7 +34,7 @@ export class MedicalService {
     return this.httpClient.post('http://localhost:8080/medicals/create/', medical);
   }
 
-  search(name: string): Observable<Medical[]> {
-    return this.httpClient.get<Medical[]>('http://localhost:8080/medicals/search/' + name);
+  search(page: number, name: string): Observable<any> {
+    return this.httpClient.get<any>('http://localhost:8080/medicals/search?page=' + page + '&searchText=' + name);
   }
 }

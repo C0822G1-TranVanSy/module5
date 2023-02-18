@@ -26,8 +26,8 @@ public class MedicalService implements IMedicalService {
     }
 
     @Override
-    public List<MedicalRecord> searchByName(String name) {
-        return medicalRepository.searchByName(name);
+    public Page<MedicalRecord> searchByName(String name, Pageable pageable) {
+        return medicalRepository.searchByName(name,pageable);
     }
 
     @Override

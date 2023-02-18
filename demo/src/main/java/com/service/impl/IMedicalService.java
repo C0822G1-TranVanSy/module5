@@ -11,7 +11,7 @@ public interface IMedicalService {
 
     Page<MedicalRecord> getPageAll(Pageable pageable);
 
-    List<MedicalRecord> searchByName(String name);
+    Page<MedicalRecord> searchByName(String name, Pageable pageable);
 
     MedicalRecord findById(int id);
 
