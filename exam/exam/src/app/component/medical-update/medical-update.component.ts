@@ -25,6 +25,9 @@ export class MedicalUpdateComponent implements OnInit {
   }, [this.checkDate]);
   medical: Medical;
   doctorList: Doctor[];
+  errors = {
+    patientName: '', code: '', endDate: ''
+  };
 
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router,
@@ -61,6 +64,21 @@ export class MedicalUpdateComponent implements OnInit {
         if (confirm('Bạn có muốn quay về trang List')) {
           this.router.navigateByUrl('medical-list');
         }
+      }, error => {
+        console.log(error);
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < error.error.length ; i++) {
+          if (error.error && error.error[0]) {
+            this.errors.patientName = error.error[0].defaultMessage;
+          }
+          if (error.error && error.error[1]) {
+            this.errors.code = error.error[1].defaultMessage;
+          }
+          if (error.error && error.error[2]) {
+            this.errors.endDate = error.error[2].defaultMessage;
+          }
+        }
+
       });
     }
   }

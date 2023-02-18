@@ -25,7 +25,7 @@ export class MedicalCreateComponent implements OnInit {
   medical: Medical;
   doctorList: Doctor[];
   errors = {
-    patientName: ''
+    patientName: '', code: '', endDate: ''
   };
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router,
@@ -46,6 +46,9 @@ export class MedicalCreateComponent implements OnInit {
 
   add() {
     console.log('he');
+    // this.errors = {
+    //   patientName: '', code: '', endDate: ''
+    // };
     if (this.formGroup.valid) {
       console.log('hehe');
       this.medicalService.add(this.formGroup.value).subscribe(next => {
@@ -54,9 +57,20 @@ export class MedicalCreateComponent implements OnInit {
           this.router.navigateByUrl('medical-list');
         }
       }, error => {
-        if (error.error && error.error[0]) {
-          this.errors.patientName = error.error[0].defaultMessage;
+        console.log(error);
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < error.error.length ; i++) {
+          if (error.error && error.error[0]) {
+            this.errors.patientName = error.error[0].defaultMessage;
+          }
+          if (error.error && error.error[1]) {
+            this.errors.code = error.error[1].defaultMessage;
+          }
+          if (error.error && error.error[2]) {
+            this.errors.endDate = error.error[2].defaultMessage;
+          }
         }
+
       });
     }
   }

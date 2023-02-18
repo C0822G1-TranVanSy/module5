@@ -3,12 +3,12 @@ package com.model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import javax.validation.Validation;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 public class MedicalRecordDto implements Validator {
     private int id;
-    @NotBlank
+    @Pattern(regexp = "BA-[\\d]+",message = "Bạn phải nhập mã bênh án với định dạng BA-xxx")
     private String code;
     @NotBlank(message = "Ban phai nhap ten benh nhan")
     private String patientName;
