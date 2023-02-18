@@ -57,6 +57,9 @@ export class MedicalUpdateComponent implements OnInit {
 
   update() {
     console.log('he');
+    this.errors = {
+      patientName: '', code: '', endDate: ''
+    };
     if (this.formGroup.valid) {
       console.log('hehe');
       this.medicalService.update(this.formGroup.value).subscribe(next => {
@@ -68,17 +71,16 @@ export class MedicalUpdateComponent implements OnInit {
         console.log(error);
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < error.error.length ; i++) {
-          if (error.error && error.error[0]) {
-            this.errors.patientName = error.error[0].defaultMessage;
+          if (error.error && error.error[i].field === 'patientName') {
+            this.errors.patientName = error.error[i].defaultMessage;
           }
-          if (error.error && error.error[1]) {
-            this.errors.code = error.error[1].defaultMessage;
+          if (error.error && error.error[i].field === 'code') {
+            this.errors.code = error.error[i].defaultMessage;
           }
-          if (error.error && error.error[2]) {
-            this.errors.endDate = error.error[2].defaultMessage;
+          if (error.error && error.error[i].field === 'endDate') {
+            this.errors.endDate = error.error[i].defaultMessage;
           }
         }
-
       });
     }
   }
